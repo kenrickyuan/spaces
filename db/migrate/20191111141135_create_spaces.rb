@@ -7,6 +7,7 @@ class CreateSpaces < ActiveRecord::Migration[5.2]
       t.string :category
       t.string :photo
       t.integer :max_occupancy
+      t.references :owner, foreign_key: { to_table: :users }
 
       t.timestamps
     end
