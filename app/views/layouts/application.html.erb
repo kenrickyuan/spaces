@@ -10,9 +10,11 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
+  <body style="background-image: url(<%= random_bg %>)">
     <%= render('shared/navbar') %>
-    <%= yield %>
+    <div class="inner-body">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= render("shared/footer") %>
