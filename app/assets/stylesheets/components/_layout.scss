@@ -4,4 +4,7 @@ body {
 
 .inner-body {
   height: calc(100vh - 161px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
