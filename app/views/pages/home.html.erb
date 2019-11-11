@@ -1,33 +1,42 @@
-<!--
-    My booking form is clean with the correct Bootstrap classes for the inputs and buttons.
-    My new bookings page is clean with a container to center the content, clear headers, and a clean design for each booking.
-    I will take time to refactor my HTML using partials if my HTML code is too long and hard to read.
- -->
-<form class="container" style="width: 400px; background-color: white; margin-top: 20px; padding-top: 10px; padding-bottom: 10px">
+<form class="container">
+  <h1 class="form-h1">Find a space for your event</h1>
+
+  <div class="form-radio d-flex">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="singleDayRadio" value="singleDay">
+      <label class="form-check-label" for="singleDayRadio">Single Day Event</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="multiDayRadio" value="multiDay">
+      <label class="form-check-label" for="multiDayRadio">Multi Day Event</label>
+    </div>
+  </div>
+
   <div class="form-group"> <!-- Where-->
-    <label for="where" class="control-label">Where</label>
+    <label for="where" class="control-label">Location</label>
     <input type="text" class="form-control" id="where" placeholder="Amsterdam">
   </div>
 
-  <div class="form-group"> <!-- When - dropdown -->
-    <label for="when" class="control-label">Single </label>
-    <input type="text" class="form-control" id="when">
+  <div class="form-check-in-row d-flex">
+    <div class="form-group form-date"> <!-- Dates-->
+      <label for="checkin" class="control-label">Check in</label>
+      <input type="time" class="form-control" id="checkin" placeholder="#asd####">
+    </div>
+
+    <div class="form-group form-date">
+      <label for="checkout" class="control-label">Check out</label>
+      <input type="time" class="form-control" id="checkout" placeholder="##asd###">
+    </div>
   </div>
 
- <div class="d-flex">
-  <div class="form-group"> <!-- Dates-->
-    <label for="checkin" class="control-label">Check in</label>
-    <input type="text" class="form-control" id="checkin" placeholder="#####">
-  </div>
+  <div class="form-last-row d-flex">
+    <div class="form-group"> <!-- When - dropdown -->
+      <label for="occupancy" class="control-label">Max Occupancy</label>
+      <input type="number" class="form-control" id="occupancy">
+    </div>
 
-    <div class="form-group">
-    <label for="checkout" class="control-label">Check out</label>
-    <input type="text" class="form-control" id="checkout" placeholder="#####">
+    <div class="form-group"> <!-- Submit Button -->
+      <button type="submit" class="btn btn-black">Search</button>
+    </div>
   </div>
- </div>
-
-  <div class="form-group"> <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary">Search</button>
-  </div>
-
 </form>

@@ -1,6 +1,43 @@
 // Specific CSS for your home-page
-
 body {
   background-size: cover;
   min-height: 100vh;
+}
+
+.container {
+  height: 450px;
+  width: 450px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.form-h1 {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 35px;
+}
+
+.form-radio {
+  margin-bottom: 1.5rem;
+  justify-content: space-evenly;
+}
+
+#occupancy {
+  width: 200px;
+}
+
+.form-last-row {
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.form-date {
+  width: 225px;
+}
+
+.form-check-in-row {
+  justify-content: space-between;
 }
