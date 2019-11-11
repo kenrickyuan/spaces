@@ -5,7 +5,7 @@ class CreateSpaces < ActiveRecord::Migration[5.2]
       t.string :description
       t.integer :price_per_hour
       t.string :category
-      t.blob :photo
+      t.string :photo
       t.integer :max_occupancy
 
       t.timestamps
