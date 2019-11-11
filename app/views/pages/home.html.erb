@@ -1,23 +1,33 @@
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
-FORM HERE!!!
+<!--
+    My booking form is clean with the correct Bootstrap classes for the inputs and buttons.
+    My new bookings page is clean with a container to center the content, clear headers, and a clean design for each booking.
+    I will take time to refactor my HTML using partials if my HTML code is too long and hard to read.
+ -->
+<form class="container" style="width: 400px; background-color: white; margin-top: 20px; padding-top: 10px; padding-bottom: 10px">
+  <div class="form-group"> <!-- Where-->
+    <label for="where" class="control-label">Where</label>
+    <input type="text" class="form-control" id="where" placeholder="Amsterdam">
+  </div>
+
+  <div class="form-group"> <!-- When - dropdown -->
+    <label for="when" class="control-label">Single </label>
+    <input type="text" class="form-control" id="when">
+  </div>
+
+ <div class="d-flex">
+  <div class="form-group"> <!-- Dates-->
+    <label for="checkin" class="control-label">Check in</label>
+    <input type="text" class="form-control" id="checkin" placeholder="#####">
+  </div>
+
+    <div class="form-group">
+    <label for="checkout" class="control-label">Check out</label>
+    <input type="text" class="form-control" id="checkout" placeholder="#####">
+  </div>
+ </div>
+
+  <div class="form-group"> <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+
+</form>
