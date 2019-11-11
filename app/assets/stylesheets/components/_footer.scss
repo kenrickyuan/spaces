@@ -1,0 +1,34 @@
+.footer {
+  background: #FFFFFF;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 10px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  align-items: center;
+  padding-top: 8px;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.31;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 5px 15px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-word-links {
+  justify-content: space-between;
+  color: black;
+  opacity: 0.60;
+  text-decoration: none;
+
+}
+.footer-word-links a:hover {
+  opacity: 1;
+}
+
