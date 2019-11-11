@@ -5,8 +5,9 @@ class CreateSpaces < ActiveRecord::Migration[5.2]
       t.string :description
       t.integer :price_per_hour
       t.string :category
-      t.blob :photo
+      t.string :photo
       t.integer :max_occupancy
+      t.references :owner, foreign_key: { to_table: :users }
 
       t.timestamps
     end
