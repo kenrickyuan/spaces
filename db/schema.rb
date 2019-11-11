@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_144433) do
 
   create_table "spaces", force: :cascade do |t|
     t.string "location"
-    t.string "description"
+    t.text "description"
     t.integer "price_per_hour"
     t.string "category"
     t.string "photo"
