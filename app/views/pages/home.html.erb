@@ -1,19 +1,19 @@
-<form class="container">
 
+<div class="home-inner-body">
+  <body style="background-image: url(<%= random_bg %>)">
+    <form class="container">
+      <h1 class="form-h1">Find a space for your event</h1>
 
-
-  <h1 class="form-h1">Find a space for your event</h1>
-
-  <div class="form-radio d-flex">
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="singleDayRadio" value="singleDay">
-      <label class="form-check-label" for="singleDayRadio">Single Day Event</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="multiDayRadio" value="multiDay">
-      <label class="form-check-label" for="multiDayRadio">Multi Day Event</label>
-    </div>
-  </div>
+      <div class="form-radio d-flex">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="singleDayRadio" value="singleDay">
+          <label class="form-check-label" for="singleDayRadio">Single Day Event</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="multiDayRadio" value="multiDay">
+          <label class="form-check-label" for="multiDayRadio">Multi Day Event</label>
+        </div>
+      </div>
 
   <div class="form-group"> <!-- Where-->
     <label for="where" class="control-label">Location</label>
@@ -42,27 +42,29 @@
     </optgroup>
   </select>
   </div>
+      <div class="form-check-in-row d-flex">
+        <div class="form-group form-date"> <!-- Dates-->
+          <label for="checkin" class="control-label">Check in</label>
+          <input type="time" class="form-control" id="checkin" placeholder="#asd####">
+        </div>
 
-  <div class="form-check-in-row d-flex">
-    <div class="form-group form-date"> <!-- Dates-->
-      <label for="checkin" class="control-label">Check in</label>
-      <input type="time" class="form-control" id="checkin" placeholder="#asd####">
-    </div>
+        <div class="form-group form-date">
+          <label for="checkout" class="control-label">Check out</label>
+          <input type="time" class="form-control" id="checkout" placeholder="##asd###">
+        </div>
+      </div>
 
-    <div class="form-group form-date">
-      <label for="checkout" class="control-label">Check out</label>
-      <input type="time" class="form-control" id="checkout" placeholder="##asd###">
-    </div>
-  </div>
+      <div class="form-last-row d-flex">
+        <div class="form-group"> <!-- When - dropdown -->
+          <label for="occupancy" class="control-label">Max Occupancy</label>
+          <input type="number" class="form-control" id="occupancy">
+        </div>
 
-  <div class="form-last-row d-flex">
-    <div class="form-group"> <!-- When - dropdown -->
-      <label for="occupancy" class="control-label">Max Occupancy</label>
-      <input type="number" class="form-control" id="occupancy">
-    </div>
+        <div class="form-group"> <!-- Submit Button -->
+          <button type="submit" class="btn btn-black">Search</button>
+        </div>
+      </div>
+    </form>
 
-    <div class="form-group"> <!-- Submit Button -->
-      <button type="submit" class="btn btn-black">Search</button>
-    </div>
-  </div>
-</form>
+  </body>
+</div>
