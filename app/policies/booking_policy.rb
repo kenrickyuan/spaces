@@ -5,28 +5,31 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    record.user == user || record.space.owner == user
+  end
+
   def show?
     record.user == user || record.space.owner == user
   end
 
-  def create?
-    record.user == user
-  end
-
   def new?
-    record.user == user
+    true
   end
 
-  def update?
-    record.user == user
+  def create?
+    true
   end
 
   def edit?
-    record.user == user
+    record.user == user || record.space.owner == user
+  end
+
+  def update?
+    record.user == user || record.space.owner == user
   end
 
   def destroy?
-    record.user == user
+    record.user == user || record.space.owner == user
   end
-
 end

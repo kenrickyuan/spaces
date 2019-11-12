@@ -1,7 +1,8 @@
-class UsersController
+class UsersController < ApplicationController
   def show
     @user = current_user
-    @user_bookings = @user.bookings
     @spaces = @user.spaces
+    @user_bookings = @user.bookings
+    authorize @user
   end
 end

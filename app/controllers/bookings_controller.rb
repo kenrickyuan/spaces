@@ -1,61 +1,62 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_space, only: [:new, :create]
 
   def index
-    @my_bookings = policy_scope(Booking)
-    # @space_bookings = policy_scope([:space, Booking])
-    # /policies/space/booking_policy.rb
+    # All User bookings
+    @user_bookings = policy_scope(Booking)
+    # All Space owner bookings
     @spaces = current_user.spaces
     @space_bookings = @spaces.flat_map { |space| space.bookings }
   end
 
   def show
-    @booking = Booking.find(params[:id])
-    @booking_space = @booking.space
     authorize @booking
   end
 
   def new
-    @space = Space.find(params[:space_id])
-    authorize @space, :show?
     @booking = Booking.new
-    autorize @booking
   end
 
   def create
-    @booking = Booking.new(params_permit)
-    @space = Space.find(params[:space_id])
-    authorize @space, :show?
+    @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.space = @space
     if @booking.save
-      redirect_to space_path(@space)
+      redirect_to space_booking_path(@space)
     else
-      render 'spaces#show'
+      render :new
     end
-    authorize @booking
   end
 
   def edit
-    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    @booking.update(params_permit)
-    redirect_to space_booking_path(:space_id)
     authorize @booking
+    @booking.update(booking_params)
+    redirect_to space_booking_path(@space)
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
-    @booking.destroy
     authorize @booking
+    @booking.destroy
   end
 
   private
 
-  def params_permit
-    params.require("booking").permit(:startime, :endtime)
+  def booking_params
+    params.require(:booking).permit(:start_time, :end_time)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def set_space
+    @space = Space.find(params[:space_id])
+    authorize @space, :show?
   end
 end
