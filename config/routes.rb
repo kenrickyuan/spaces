@@ -6,4 +6,5 @@ Rails.application.routes.draw do
       resources :bookings
     end
   end
+  resources :spaces, only: [:index]
 end
