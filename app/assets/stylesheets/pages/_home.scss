@@ -1,11 +1,11 @@
 // Specific CSS for your home-page
 body {
   background-size: cover;
-  min-height: 100vh;
+  // min-height: 100vh; # not sure where this line came from, but it messes with the format of the home page
 }
 
 .home-inner-body {
-  height: calc(100vh - 161px);
+  height: calc(100vh - 162px);
   display: flex;
   justify-content: center;
   align-items: center;
