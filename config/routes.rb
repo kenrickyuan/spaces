@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:show] do
-    resources :spaces do
-      resources :bookings
+    resources :booking, only: [:index]
+    resources :spaces, except: [:show] do
+      resources :bookings, except: [:index]
     end
   end
   resources :spaces, only: [:index, :show]
-
-
-  resources :bookings
 end

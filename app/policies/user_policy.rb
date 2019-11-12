@@ -1,12 +1,12 @@
-class SpacePolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
   def index?
-    true
+    false
   end
 
   def show?
@@ -14,14 +14,14 @@ class SpacePolicy < ApplicationPolicy
   end
 
   def edit?
-    record.owner == user
+    false
   end
 
   def update?
-    record.owner == user
+    false
   end
 
   def destroy?
-    record.owner == user
+    false
   end
 end

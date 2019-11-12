@@ -6,20 +6,18 @@ class SpacesController < ApplicationController
   end
 
   def show
+    authorize @space
     @booking = Booking.new
-    authorize @booking
   end
 
   def new
     @space = Space.new
-    authorize @space
   end
 
   def create
     @space = Space.new(space_params)
-    @space.user = current_user
     authorize @space
-
+    @space.user = current_user
     if @space.save
       redirect_to space_path(@space)
     else
@@ -32,15 +30,15 @@ class SpacesController < ApplicationController
   end
 
   def update
+    authorize @space
     @space.update(space_params)
     redirect_to space_path(@space)
-    authorize @space
   end
 
   def destroy
+    authorize @space
     @space.destroy
     redirect_to spaces_path
-    authorize @space
   end
 
   private
@@ -51,6 +49,5 @@ class SpacesController < ApplicationController
 
   def set_space
     @space = Space.find(params[:id])
-    authorize @space
   end
 end

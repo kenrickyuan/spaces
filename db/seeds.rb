@@ -6,9 +6,9 @@ Booking.destroy_all
 puts "Creating 10 users!"
 
 User.create!(
-  name: 'Patrick',
-  email: 'patrick@mail.com',
-  password: '12345678901234567890'
+  name: 'Kristina',
+  email: 'kristina_head@icloud.com',
+  password: 'testing123'
 )
 
 10.times do
@@ -52,7 +52,7 @@ puts "Creating 10 bookings!"
     start_time: '2019-11-12 11:30:00',
     end_time: '2020-11-12 11:30:00'
   )
-  booking.save
+  booking.save!
 end
 
 puts "Database populated :)"
