@@ -12,9 +12,7 @@
   </head>
   <body>
     <%= render('shared/navbar') %>
-    <div class="inner-body">
-      <%= yield %>
-    </div>
+    <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= render("shared/footer") %>
