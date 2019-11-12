@@ -7,6 +7,7 @@ class SpacesController < ApplicationController
 
   def show
     @booking = Booking.new
+    authorize @booking
   end
 
   def new
@@ -27,16 +28,19 @@ class SpacesController < ApplicationController
   end
 
   def edit
+    authorize @space
   end
 
   def update
     @space.update(space_params)
     redirect_to space_path(@space)
+    authorize @space
   end
 
   def destroy
     @space.destroy
     redirect_to spaces_path
+    authorize @space
   end
 
   private
