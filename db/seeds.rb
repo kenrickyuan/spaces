@@ -1,3 +1,10 @@
+puts "Destroying all users, spaces and bookings..."
+User.destroy_all
+Space.destroy_all
+Booking.destroy_all
+
+puts "Creating 10 users!"
+
 10.times do
   user = User.new(
     name: Faker::FunnyName.name,
@@ -6,6 +13,8 @@
   )
   user.save
 end
+
+puts "Creating 10 spaces!"
 
 categories = ['house party', 'wedding', 'festival']
 
@@ -22,6 +31,8 @@ categories = ['house party', 'wedding', 'festival']
   space.save
 end
 
+puts "Creating 10 bookings!"
+
 10.times do
   booking = Booking.new(
     user_id: rand(1..10),
@@ -32,3 +43,5 @@ end
   )
   booking.save
 end
+
+puts "Database populated :)"
