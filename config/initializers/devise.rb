@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'kristina_head@icloud.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -117,10 +117,10 @@ Devise.setup do |config|
   # config.pepper = '20963a06ce5aadd09f5cc500a73b0f0934b43b207dd0c29126e708fa5ae4713b2531e9af69641d05006cc67eed6b6d8bf5959bebab91313ce623078f8ace5aed'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+  config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+  config.send_password_change_notification = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -131,7 +131,7 @@ Devise.setup do |config|
   # without confirming their account.
   # Default is 0.days, meaning the user cannot access the website without
   # confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 0.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -152,7 +152,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
@@ -166,7 +166,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 20..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -207,7 +207,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  # config.reset_password_keys = [:email]
+  config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -216,7 +216,7 @@ Devise.setup do |config|
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
-  # config.sign_in_after_reset_password = true
+  config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
@@ -295,5 +295,5 @@ Devise.setup do |config|
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
-  # config.sign_in_after_change_password = true
+  config.sign_in_after_change_password = true
 end
