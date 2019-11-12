@@ -1,4 +1,7 @@
 <form class="container">
+
+
+
   <h1 class="form-h1">Find a space for your event</h1>
 
   <div class="form-radio d-flex">
@@ -14,7 +17,30 @@
 
   <div class="form-group"> <!-- Where-->
     <label for="where" class="control-label">Location</label>
-    <input type="text" class="form-control" id="where" placeholder="Amsterdam">
+  <select class="select2" type="text">
+    <optgroup label="Europe">
+    <option>Amsterdam</option>
+    <option>London</option>
+    <option>Berlin</option>
+    <option>Milan</option>
+    <option>Paris</option>
+    </optgroup>
+    <optgroup label="North America">
+    <option>New York</option>
+    <option>Los Angeles</option>
+    <option>Seatle</option>
+    <option>Orlando</option>
+    <option>Washington DC</option>
+    <option>Houston</option>
+    </optgroup>
+    <optgroup label="Asia">
+    <option>Hong Kong</option>
+    <option>Singapore</option>
+    <option>Jakarta</option>
+    <option>Bangkok</option>
+    <option>Tokyo</option>
+    </optgroup>
+  </select>
   </div>
 
   <div class="form-check-in-row d-flex">
