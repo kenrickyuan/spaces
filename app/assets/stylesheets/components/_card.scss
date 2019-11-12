@@ -1,14 +1,107 @@
-.card {
-  background-size: cover;
-  background-position: center;
-  height: 150px;
-  border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.cards {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.card-h2 {
+  font-family: Roboto;
   font-size: 22px;
-  color: white;
-  font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  font-weight: bold;
+  margin-bottom: 18px;
+  opacity: 0.8;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 250px;
+  // padding: 1rem;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-bottom: 1px solid #F4F4F4;
+  border-top: 1px solid #F4F4F4;
+  align-items: center;
+}
+
+.card-product-title {
+  font-size: 22px;
+}
+
+.card-product-image {
+  width: 310px;
+  height: 210px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.card-product-numbers {
+  margin-top: auto;
+  justify-content: space-between;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-infos {
+  flex-grow: 1;
+  height: 210px;
+  display: flex;
+  flex-flow: column;
+  padding-left: 20px;
+  // padding-top: 0.5rem;
+  // padding-bottom: 0.5rem;
+}
+
+.card-price-per-night{
+  font-size: 22px;
+}
+
+.card-price-per-night-bold {
+  font-weight: bold;
+}
+
+.card-price-total {
+  font-size: 16px;
+  color: #AEAEAE;
+}
+
+.card-occupancy {
+  padding-top: 3px;
+}
+
+.card-product-numbers-right {
+  text-align: right;
+}
+
+.card-icon {
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
+}
+
+.card-ratings-text{
+
+}
+
+.card-occupancy-text{
+
+}
+
+@media(max-width:1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 992px) {
+}
+
+@media(max-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
