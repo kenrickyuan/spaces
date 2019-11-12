@@ -17,11 +17,20 @@
     <!-- Not sure if the divise_mapping will work in scale -->
   </div>
     <%= f.button :submit, "Login", { class: 'login-btn'}  %>
-  <div class="container-login-button">
+<div class="container-login-button">
+  <button class="loginBtn loginBtn--facebook">
+    Login with Facebook
+  </button>
+
+  <button class="loginBtn loginBtn--google">
+    Login with Google
+  </button>
+
+</div>
+  <div class="container-blue-text-button">
 <%= render "devise/shared/links" %>
   </div>
 <% end %>
-
 </div>
 </div>
 
