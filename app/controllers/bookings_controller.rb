@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    authorize @booking
   end
 
   def new
@@ -30,17 +29,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    authorize @booking
   end
 
   def update
-    authorize @booking
     @booking.update(booking_params)
     redirect_to space_booking_path(@space)
   end
 
   def destroy
-    authorize @booking
     @booking.destroy
   end
 

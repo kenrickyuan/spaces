@@ -22,11 +22,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user || record.space.owner == user
+    record.user == user
   end
 
   def update?
-    record.user == user || record.space.owner == user
+    record.user == user
   end
 
   def destroy?
