@@ -1,5 +1,5 @@
 .container-login {
-  height: 450px;
+  height: 488px;
   width: 450px;
   background-color: white;
   padding: 30px;
@@ -12,7 +12,8 @@
   justify-content: center;
   align-items: center;
 }
-#login-title {
+
+.form-h1 {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
@@ -23,6 +24,21 @@
 .login-links {
 justify-content: space-between;
 text-align: center;
+}
+
+.link-button {
+  background-color: black;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  padding: 3px 20px 3px 20px;
+  margin: 20px;
+
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }
 }
 
 .login-btn {
@@ -43,13 +59,13 @@ color: black !important;
 .container-login-button{
   display: flex;
   justify-content: space-evenly;
-  padding-top: 10px;
+  padding-top: 1rem;
 }
 
 .container-blue-text-button{
   display: flex;
   flex-grow: 3;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-top: 10px;
 }
 
@@ -88,6 +104,9 @@ color: black !important;
 
 /* Facebook */
 .loginBtn--facebook {
+  margin-left: 0;
+  display: flex;
+  width: 195px;
   background-color: #4C69BA;
   background-image: linear-gradient(#4C69BA, #3B55A0);
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
@@ -103,9 +122,20 @@ color: black !important;
   background-image: linear-gradient(#5B7BD5, #4864B1);
 }
 
+.login-facebook-text {
+  font-size: 14px;
+}
+
+.login-google-text {
+  margin: 0 auto;
+  font-size: 14px;
+}
 
 /* Google */
 .loginBtn--google {
+  margin-right: 0;
+  display: flex;
+  width: 195px;
   /*font-family: "Roboto", Roboto, arial, sans-serif;*/
   background: #DD4B39;
 }
@@ -116,4 +146,8 @@ color: black !important;
 .loginBtn--google:hover,
 .loginBtn--google:focus {
   background: #E74B37;
+}
+
+#login-form-actions {
+  padding-top: 20px;
 }
