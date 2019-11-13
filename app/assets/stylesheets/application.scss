@@ -12,4 +12,15 @@
 @import "components/index";
 @import "pages/index";
 @import "spaces/index";
-@import "users/login";
+
+// Homepage
+@import "pages/home";
+
+// Sign up
+@import "devise/registrations/new";
+
+// Log in
+@import "devise/sessions/new";
+
+// Profile page
+@import "users/show";
