@@ -1,0 +1,10 @@
+<h1>New Space</h1>
+<%= simple_form_for [@user, @space] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :category, collection: ['house party', 'wedding', 'festival']%>
+  <%= f.input :price_per_hour %>
+  <%= f.input :max_occupancy %>
+  <%= f.submit "Add Your Space", class: "btn btn-primary" %>
+<% end %>

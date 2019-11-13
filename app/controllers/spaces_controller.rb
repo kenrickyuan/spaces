@@ -10,6 +10,7 @@ class SpacesController < ApplicationController
   end
 
   def new
+    @user = current_user
     @space = Space.new
     authorize @space
   end
@@ -17,7 +18,7 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
     authorize @space
-    @space.user = current_user
+    @space.owner = current_user
     if @space.save
       redirect_to space_path(@space)
     else
@@ -41,7 +42,7 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:description, :location, :category, :price_per_hour, :max_occupancy, :photo)
+    params.require(:space).permit(:name, :description, :location, :category, :price_per_hour, :max_occupancy, :photo)
   end
 
   def set_space
