@@ -1,0 +1,46 @@
+body {
+  background-size: cover;
+  // min-height: 100vh; # not sure where this line came from, but it messes with the format of the home page
+}
+
+.sign-up-inner-body {
+  height: calc(100vh - 162px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 61px;
+}
+
+.sign-up-container {
+  height: 540px;
+  width: 370px;
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  border-radius: 10px;
+}
+
+.form-h1 {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 32px;
+  margin-top: 6px;
+}
+
+.link-button {
+  background-color: black;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  padding: 3px 20px 3px 20px;
+  margin: 20px;
+
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }
+}

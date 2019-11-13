@@ -12,7 +12,8 @@
   justify-content: center;
   align-items: center;
 }
-#login-title {
+
+.form-h1 {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
@@ -23,6 +24,21 @@
 .login-links {
 justify-content: space-between;
 text-align: center;
+}
+
+.link-button {
+  background-color: black;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  padding: 3px 20px 3px 20px;
+  margin: 20px;
+
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }
 }
 
 .login-btn {
