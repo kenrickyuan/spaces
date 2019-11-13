@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_space, only: [:new, :create]
 
@@ -21,8 +22,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.space = @space
-    if @booking.save
-      redirect_to space_booking_path(@space)
+    @booking.user = current_user
+    if @booking.save!
+      redirect_to user_space_booking_path(current_user.id, @booking.space.id, @booking.id)
     else
       render :new
     end
