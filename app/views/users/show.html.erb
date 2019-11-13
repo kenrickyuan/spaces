@@ -4,7 +4,7 @@
   <!-- display user spaces -->
   <div class="cards">
     <% if @user.spaces != nil %>
-    <% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
+    <% test = ["card-1.jpeg", "card-2.jpeg", "card-3.jpeg"] %>
     <h2 class="card-h2">Your spaces</h2>
     <% @user.spaces.each_with_index do |space, index| %>
     <div class="card-product d-flex">
