@@ -6,7 +6,6 @@ class SpacesController < ApplicationController
   end
 
   def show
-    authorize @space
     @booking = Booking.new
   end
 
@@ -26,17 +25,14 @@ class SpacesController < ApplicationController
   end
 
   def edit
-    authorize @space
   end
 
   def update
-    authorize @space
     @space.update(space_params)
     redirect_to space_path(@space)
   end
 
   def destroy
-    authorize @space
     @space.destroy
     redirect_to spaces_path
   end
@@ -49,5 +45,6 @@ class SpacesController < ApplicationController
 
   def set_space
     @space = Space.find(params[:id])
+    authorize @space
   end
 end
