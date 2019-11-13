@@ -1,10 +1,21 @@
-<h1>New Space</h1>
+
+
+<div class="newspace-inner-body">
+<body style="background-image: url(<%= random_bg %>)">
+<div class="container-newspace">
+
+<h1 id="login-title">New Space</h1>
+
 <%= simple_form_for [@user, @space] do |f| %>
+<div class="form-inputs">
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :location %>
   <%= f.input :category, collection: ['house party', 'wedding', 'festival']%>
   <%= f.input :price_per_hour %>
   <%= f.input :max_occupancy %>
-  <%= f.submit "Add Your Space", class: "btn btn-primary" %>
+  </div>
+    <%= f.button :submit, "Add Your Space", { class: 'login-btn'}  %>
 <% end %>
+</div>
+</div>
