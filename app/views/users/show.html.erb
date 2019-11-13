@@ -26,9 +26,9 @@
     </div>
     <% end %>
   </div>
-    <%= link_to "Add another space", new_user_space_path(@user), class: "link-button" %>
+    <%= link_to "Add another space", new_user_space_path(current_user), class: "link-button" %>
     <% else %>
-    <%= link_to "Add a space", new_user_space_path(@user), class: "link-button" %>
+    <%= link_to "Add a space", new_user_space_path(current_user), class: "link-button" %>
     <% end %>
 
   <!-- display user bookings -->
