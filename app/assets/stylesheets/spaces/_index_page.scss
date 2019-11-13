@@ -2,7 +2,7 @@
   padding-top: 45px;
   display: flex;
   margin: 0;
-  font-family: 'Varela Round', sans-serif;
+  font-family: Roboto;
   font-size: 18px;
   background: white;
 }
@@ -14,14 +14,6 @@
 .index-page-container {
   display: flex;
 }
-
-// .cards {
-//   flex-grow: 1;
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr;
-//   grid-gap: 16px;
-//   padding: 16px;
-// }
 
 #map {
   height: calc(100vh - 61px);
