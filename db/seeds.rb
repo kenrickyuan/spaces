@@ -1,4 +1,5 @@
-puts "Destroying all users, spaces and bookings..."
+puts "Destroying all users, spaces, and bookings..."
+
 User.destroy_all
 Space.destroy_all
 Booking.destroy_all
@@ -8,7 +9,7 @@ puts "Creating 10 users!"
 User.create!(
   name: 'Kristina',
   email: 'kristina_head@icloud.com',
-  password: 'testing123'
+  password: 'testing123' # Error, I tried using these credentials and I couldn't log into your icloud. Please provide the real password here.
 )
 
 10.times do
