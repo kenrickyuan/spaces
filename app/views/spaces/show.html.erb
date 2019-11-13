@@ -16,11 +16,32 @@
       <div class="show-space-description">
         <p> <%= simple_format(@space.description) %> </p>
       </div>
+      <% if @space.owner == current_user %>
+      <div class="cards">
+    <% if @space.bookings != nil %>
+    <% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
+    <h2 class="card-h2">Your bookings to that space</h2>
+    <% @space.bookings.each_with_index do |booking, index| %>
+    <div class="card-product d-flex">
+      <div class="card-product-infos">
+        <h3 class="card-product-title">Booked by:<%= booking.user.name %></h3>
+        <div class="card-product-tags"><%= booking.start_time.day %>th November <%= booking.start_time.hour %>am until <%= booking.end_time.day %>th November <%= booking.end_time.hour %>pm</div>
+        <div class="card-product-numbers d-flex">
+          <div class="card-product-numbers-left">
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
     </div>
     <div class="show-space-map">
       <img id="map-show-space" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1Ijoia2Vucmlja3l1YW4iLCJhIjoiY2syNjVwa24zMnA2cDNvcXR6MWQxc3QxZCJ9.WgP8krnsGkEkvvrGhQQ-qw'>
     </div>
   </div>
+  <% else %>
   <div class="booking-form"></div>
 </div>
+<%end%>
 </div>
