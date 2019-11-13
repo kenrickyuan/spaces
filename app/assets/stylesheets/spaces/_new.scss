@@ -6,9 +6,17 @@
 }
 
 .container-newspace {
-  height: 750px;
+  height: 700px;
   width: 650px;
   background-color: white;
   padding: 30px;
   border-radius: 10px;
+}
+
+#new-space-login-btn {
+  width: 250px;
+}
+
+.form-submit-btn {
+  width: 100%
 }
