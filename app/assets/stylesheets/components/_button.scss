@@ -3,7 +3,9 @@
   color: white;
   width: 195px;
   border-radius: 10px;
+
   &:hover {
+    text-decoration: none;
     font-weight: bold;
     color: white;
   }
