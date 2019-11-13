@@ -22,8 +22,8 @@
                       input_html: { autocomplete: "new-password" } %>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "link-button" %>
+        <div class="form-actions" id="sign-up-button-div">
+          <%= f.button :submit, "Sign up", class: "link-button", id: "sign-up-button" %>
         </div>
       <%= render "devise/shared/links" %>
       <% end %>
