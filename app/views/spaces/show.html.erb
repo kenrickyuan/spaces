@@ -1,7 +1,26 @@
-<h2><%= @space.name %></h2>
-<p> Description: <%= @space.description %> </p>
-<p> Location: <%= @space.location %></p>
-<p> Category: <%= @space.category %></p>
-<p> Price per Hour: <%= @space.price_per_hour %></p>
-<p> Max_occupancy: <%= @space.max_occupancy %></p>
-
+<% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
+<%= render partial: "shared/carousel_big", locals: {test: test} %>
+<div class="show-space-inner-body">
+<div class="show-space-container d-flex">
+  <div class="show-space-left">
+    <div class="show-space-title d-flex justify-content-between align-content-center">
+      <h2 class="show-space-title-h2"><%= @space.name %></h2>
+      <div class="show-space-avatar"><%= image_tag "avatar.png", class: "avatar-large" %></div>
+    </div>
+    <div class="show-space-details">
+      <div class="show-space-quick-info">
+        <p> Location: <%= @space.location %></p>
+        <p> Category: <%= @space.category %></p>
+        <p class="show-space-occupancy"> Max_occupancy: <%= @space.max_occupancy %></p>
+      </div>
+      <div class="show-space-description">
+        <p> <%= simple_format(@space.description) %> </p>
+      </div>
+    </div>
+    <div class="show-space-map">
+      <img id="map-show-space" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1Ijoia2Vucmlja3l1YW4iLCJhIjoiY2syNjVwa24zMnA2cDNvcXR6MWQxc3QxZCJ9.WgP8krnsGkEkvvrGhQQ-qw'>
+    </div>
+  </div>
+  <div class="booking-form"></div>
+</div>
+</div>
