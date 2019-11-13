@@ -4,7 +4,7 @@
   <!-- display user spaces -->
   <div class="cards">
     <% if @user.spaces != nil %>
-    <% test = ["card-1.jpeg", "card-2.jpeg", "card-3.jpeg"] %>
+    <% test = ["card-1.png", "card-2.png", "card-3.png"] %>
     <h2 class="card-h2">Your spaces</h2>
     <% @user.spaces.each_with_index do |space, index| %>
     <div class="card-product d-flex">
@@ -34,7 +34,7 @@
   <!-- display user bookings -->
   <div class="cards">
     <% if @user.bookings != nil %>
-    <% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
+    <% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
     <h2 class="card-h2">Your bookings</h2>
     <% @user.bookings.each_with_index do |booking, index| %>
     <div class="card-product d-flex">
