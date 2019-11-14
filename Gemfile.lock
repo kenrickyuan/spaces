@@ -229,9 +229,9 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
-  datetime_picker_input
   carrierwave (~> 1.2)
   cloudinary (~> 1.9.1)
+  datetime_picker_input
   devise
   dotenv-rails
   faker
