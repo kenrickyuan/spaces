@@ -1,22 +1,10 @@
 <div class="home-inner-body">
   <body style="background-image: url(<%= random_bg %>)">
-    <form class="home-container">
+    <form  form action="/spaces" method="get" class="home-container">
       <h1 class="form-h1">Find a space for your event</h1>
-
-      <div class="form-radio d-flex">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="singleDayRadio" value="singleDay">
-          <label class="form-check-label" for="singleDayRadio">Single Day Event</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="multiDayRadio" value="multiDay">
-          <label class="form-check-label" for="multiDayRadio">Multi Day Event</label>
-        </div>
-      </div>
-
       <div class="form-group"> <!-- Where-->
-        <label for="where" class="control-label">Location</label>
-        <select class="select2" type="text">
+        <label for="location" class="control-label">Location</label>
+        <select class="select2" type="text" name="location" id="location">
           <optgroup label="Europe">
             <option>Amsterdam</option>
             <option>London</option>
@@ -41,27 +29,35 @@
           </optgroup>
         </select>
       </div>
+      <label for="location" class="control-label">What kind of event?</label>
+      <select class="select2" type="text" name="category">
+        <option></option>
+        <% array_of_catergories = ["house party", "wedding", "festival", "business", "dinner party", "drinks", "birthday", "coffee/high tea", "surprise", "baby shower", "celebration", "bridal shower", "weekend trip", "bbq"] %>
+        <% array_of_catergories.each do |category|  %>
+        <option><%= category %></option>
+        <% end %>
+      </select>
       <div class="form-check-in-row d-flex">
         <div class="form-group form-date"> <!-- Dates-->
           <label for="checkin" class="control-label">Check in</label>
-          <input type="time" class="form-control" id="checkin" placeholder="#asd####">
+          <input type="text" class="picker" id="checkin" name="checkin" placeholder="Optional">
         </div>
 
         <div class="form-group form-date">
           <label for="checkout" class="control-label">Check out</label>
-          <input type="time" class="form-control" id="checkout" placeholder="##asd###">
+          <input type="text" class="picker" id="checkout" name="checkout" placeholder="Optional">
         </div>
       </div>
 
       <div class="form-last-row d-flex">
         <div class="form-group"> <!-- When - dropdown -->
-          <label for="occupancy" class="control-label">Max Occupancy</label>
-          <input type="number" class="form-control" id="occupancy">
+          <label for="occupancy" class="control-label">How many people?</label>
+          <input type="number" name="occupancy" placeholder="Optional" id="occupancy">
+          <label for="price" class="control-label">Maximum price/hour?</label>
+          <input type="number" name="price" placeholder="Optional" id="price">
         </div>
-        <div class="form-group"> <!-- Submit Button -->
-          <button type="submit"></button>
-          <!-- FAKE BUTTON FOR WEDNESDAY DEMO -->
-          <!--  <%= link_to "Search", spaces_path, class: "btn btn-black" %> -->
+        <div class="form-group">
+            <input type="submit" class= "btn btn-black" value="Search">
         </div>
       </div>
     </form>

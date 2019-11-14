@@ -10,8 +10,10 @@ class SpacesController < ApplicationController
       filter_max_occupancy if params[:max_occupancy].present?
       filter_price_per_hour if params[:price_per_hour].present?
       policy_scope(@spaces)
+      set_markers
     else
       @spaces = policy_scope(Space.all)
+      set_markers
     end
   end
 
@@ -82,5 +84,14 @@ class SpacesController < ApplicationController
 
     space_ids = @bookings.map(&:space_id)
     @spaces = @spaces.where.not(id: space_ids)
+  end
+  
+  def set_markers
+    @spaces_geocoded = @spaces.geocoded
+    @markers = @spaces_geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude
+      }
   end
 end
