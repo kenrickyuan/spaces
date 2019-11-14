@@ -20,6 +20,7 @@ gem 'devise'
 gem 'faker'
 gem 'pundit'
 gem 'datetime_picker_input'
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
