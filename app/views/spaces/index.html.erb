@@ -7,7 +7,7 @@
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
         <h3 class="card-product-title-index"><%= link_to space.name, space_path(space), class: "link" %></h3>
-        <div class="card-product-tags"><%= space.category %></div>
+        <div class="card-product-tags"><%= space.category.capitalize %></div>
         <div class="card-product-numbers d-flex">
           <div class="card-product-numbers-left">
 

@@ -53,8 +53,8 @@ puts "Creating 10 bookings!"
   booking = Booking.new(
     user: user,
     space: space,
-    start_time: Faker::Time.forward(days: rand(1..5),  period: :day, format: :long)
-    end_time: Faker::Time.forward(days: rand(6..10),  period: :day, format: :long)
+    start_time: Faker::Time.forward(days: rand(1..5),  period: :day, format: :long),
+    end_time: Faker::Time.forward(days: rand(6..10),  period: :evening, format: :long)
     )
   booking.save!
 end
