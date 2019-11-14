@@ -10,7 +10,7 @@
     <div class="show-space-details">
       <div class="show-space-quick-info">
         <p> Location: <%= @space.location %></p>
-        <p> Category: <%= @space.category %></p>
+        <p> Category: <%= @space.category.capitalize %></p>
         <p class="show-space-occupancy"> Max_occupancy: <%= @space.max_occupancy %></p>
       </div>
       <div class="show-space-description">
