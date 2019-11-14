@@ -1,37 +1,44 @@
 <div class="login-inner-body">
-<body style="background-image: url(<%= random_bg %>)">
-<div class="container-login">
+  <body style="background-image: url(<%= random_bg %>)">
+    <div class="container-login">
 
-<h1 id="login-title">Log in</h1>
+      <h1 class="form-h1">Log in</h1>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" }, input_html: { class: 'login-email'}%>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean, label_html: { class: 'login-remember'} if devise_mapping.rememberable?  %>
-    <!-- Not sure if the divise_mapping will work in scale -->
-  </div>
-    <%= f.button :submit, "Login", { class: 'login-btn'}  %>
-<div class="container-login-button">
-  <button class="loginBtn loginBtn--facebook">
-    Login with Facebook
-  </button>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <button class="loginBtn loginBtn--google">
-    Login with Google
-  </button>
+      <div class="form-inputs">
+        <%= f.input :email,
+        required: false,
+        autofocus: true,
+        input_html: { autocomplete: "email" }, input_html: { class: 'login-email'}%>
+        <%= f.input :password,
+        required: false,
+        input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean, label_html: { class: 'login-remember'} if devise_mapping.rememberable?  %>
+        <!-- Not sure if the divise_mapping will work in scale -->
+      </div>
 
-</div>
-  <div class="container-blue-text-button">
-<%= render "devise/shared/links" %>
-  </div>
-<% end %>
-</div>
+      <div class="form-actions" id="login-form-actions">
+        <%= f.button :submit, "Login", { class: 'login-btn'}  %>
+      </div>
+
+      <div class="container-login-button">
+        <button class="loginBtn loginBtn--facebook">
+          <span class="login-facebook-text">Login with Facebook</span>
+        </button>
+
+        <button class="loginBtn loginBtn--google">
+          <span class="login-google-text">Login with Google</span>
+        </button>
+      </div>
+
+      <% end %>
+      <div class="container-blue-text-button">
+        <%= render "devise/shared/links"%>
+      </div>
+
+    </div>
+  </body>
 </div>
 
 <!-- input_html: { class: 'login-remember'} -->

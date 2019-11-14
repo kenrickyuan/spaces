@@ -1,3 +1,4 @@
+
 <div class="booking-inner-body" style="background-image: url(<%= random_bg %>)">
   <div class="booking-form">
     <%= simple_form_for [@space, @booking] do |f| %>
@@ -22,44 +23,32 @@
         <%= f.button :submit, class: "test-button" %>
     <% end %>
       </div>
+
+<% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
+<%= render partial: "shared/carousel_big", locals: {test: test} %>
+<div class="show-space-inner-body">
+<div class="show-space-container d-flex">
+  <div class="show-space-left">
+    <div class="show-space-title d-flex justify-content-between align-content-center">
+      <h2 class="show-space-title-h2"><%= @space.name %></h2>
+      <div class="show-space-avatar"><%= image_tag "avatar.png", class: "avatar-large" %></div>
+    </div>
+    <div class="show-space-details">
+      <div class="show-space-quick-info">
+        <p> Location: <%= @space.location %></p>
+        <p> Category: <%= @space.category %></p>
+        <p class="show-space-occupancy"> Max_occupancy: <%= @space.max_occupancy %></p>
+      </div>
+      <div class="show-space-description">
+        <p> <%= simple_format(@space.description) %> </p>
+      </div>
+    </div>
+    <%= link_to "Back to spaces", spaces_path, class: "btn-black" %>
+    <div class="show-space-map">
+      <img id="map-show-space" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1Ijoia2Vucmlja3l1YW4iLCJhIjoiY2syNjVwa24zMnA2cDNvcXR6MWQxc3QxZCJ9.WgP8krnsGkEkvvrGhQQ-qw'>
+    </div>
+
   </div>
+  <div class="booking-form"></div>
 </div>
-
-
-
-   <!--  <div class="row">
-      <div class="col-sm-4">
-        <div class="form-group">
-          <span class="form-label">Max Occupancy</span>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-          <span class="select-arrow"></span>
-        </div>
-      </div> -->
-<!--       <div class="col-sm-4">
-        <div class="form-group">
-          <span class="form-label">Adults</span>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-          <span class="select-arrow"></span>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="form-group">
-          <span class="form-label">Children</span>
-          <select class="form-control">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-          </select>
-          <span class="select-arrow"></span>
-        </div>
-      </div>
-    </div> -->
-<!-- <script>jQuery('#datetimepicker').datetimepicker();</script> -->
+</div>

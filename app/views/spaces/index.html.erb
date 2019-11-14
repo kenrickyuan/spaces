@@ -1,12 +1,12 @@
 <div class="index-inner-body">
   <div class="cards">
     <% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
-    <h2 class="card-h2">We found 10 venues for you!</h2>
+    <h2 class="card-h2">We found 10 spaces for you!</h2>
     <% @spaces.each_with_index do |space, index| %>
     <div class="card-product d-flex">
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
-        <h3 class="card-product-title"><%= space.name %></h3>
+        <h3 class="card-product-title"><%= link_to space.name, space_path(space), class: "link" %></h3>
         <div class="card-product-tags"><%= space.category %></div>
         <div class="card-product-numbers d-flex">
           <div class="card-product-numbers-left">

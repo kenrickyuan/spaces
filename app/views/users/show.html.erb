@@ -1,19 +1,59 @@
-<h1>Profile Page</h1>
-<h2>@user.name</h2>
-<ul>
-  <li> Owned Spaces
-    <ul>
-      <% %>
-      <li></li>
-    </ul>
-  </li>
-  <li>Booked Spaces
-    <ul>
-      <% @user_bookings.each do |booking| %>
-      <li>
-        <%= booking.space %>
-      </li>
-      <% end %>
-    </ul>
-  </li>
-</ul>
+<div class="profile-page-inner-body">
+  <h1 class="profile-h1">Hi, <%= @user.name %>!</h1>
+
+  <!-- display user spaces -->
+  <div class="cards">
+    <% if @user.spaces != nil %>
+    <% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
+    <h2 class="card-h2">Your spaces</h2>
+    <% @user.spaces.each_with_index do |space, index| %>
+    <div class="card-product d-flex">
+      <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
+      <div class="card-product-infos">
+        <h3 class="card-product-title"><%= space.name %></h3>
+        <div class="card-product-tags"><%= space.category %></div>
+        <div class="card-product-numbers d-flex">
+          <div class="card-product-numbers-left">
+            <div class="card-ratings d-flex"><%= image_tag "rating.png", class: "card-icon" %><span class="card-ratings-text">4.72</span></div>
+            <div class="card-occupancy d-flex"><%= image_tag "occupancy.png", class: "card-icon" %><span class="card-occupancy-text"><%= space.max_occupancy %></span></div>
+          </div>
+          <div class="card-product-numbers-right">
+            <span class="card-price-per-night"><span class="card-price-per-night-bold">$<%= space.price_per_hour %></span> / hour</span>
+            <div class="card-price-total">$<%= space.price_per_hour * 5 %> total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+    <%= link_to "Add another space", new_user_space_path(@user), class: "link-button" %>
+    <% else %>
+    <%= link_to "Add a space", new_user_space_path(@user), class: "link-button" %>
+    <% end %>
+
+  <!-- display user bookings -->
+  <div class="cards">
+    <% if @user.bookings != nil %>
+    <% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
+    <h2 class="card-h2">Your bookings</h2>
+    <% @user.bookings.each_with_index do |booking, index| %>
+    <div class="card-product d-flex">
+      <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
+      <div class="card-product-infos">
+        <h3 class="card-product-title"><%= booking.space.name %></h3>
+        <div class="card-product-tags"><%= booking.start_time.day %>th November <%= booking.start_time.hour %>am until <%= booking.end_time.day %>th November <%= booking.end_time.hour %>pm</div>
+        <div class="card-product-numbers d-flex">
+          <div class="card-product-numbers-left">
+            <div class="card-ratings d-flex"><%= image_tag "rating.png", class: "card-icon" %><span class="card-ratings-text">4.72</span></div>
+            <div class="card-occupancy d-flex"><%= image_tag "occupancy.png", class: "card-icon" %><span class="card-occupancy-text"><%= booking.space.max_occupancy %></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to "Book another space", root_path, class: "link-button" %>
+  <% else %>
+  <%= link_to "Book a space", root_path, class: "link-button" %>
+  <% end %>
+</div>

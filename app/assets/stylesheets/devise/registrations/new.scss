@@ -1,10 +1,9 @@
-// Specific CSS for your home-page
 body {
   background-size: cover;
   // min-height: 100vh; # not sure where this line came from, but it messes with the format of the home page
 }
 
-.home-inner-body {
+.sign-up-inner-body {
   height: calc(100vh - 162px);
   display: flex;
   justify-content: center;
@@ -12,8 +11,8 @@ body {
   margin-top: 61px;
 }
 
-.home-container {
-  height: 420px;
+.sign-up-container {
+  height: 550px;
   width: 450px;
   background-color: white;
   padding-left: 30px;
@@ -31,25 +30,10 @@ body {
   margin-top: 6px;
 }
 
-.form-radio {
-  margin-bottom: 1.5rem;
-  justify-content: space-evenly;
+#sign-up-button{
+  margin: 0;
 }
 
-#occupancy {
-  width: 195px;
+#sign-up-button-div{
+  margin-bottom: 10px;
 }
-
-.form-last-row {
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.form-date {
-  width: 225px;
-}
-
-.form-check-in-row {
-  justify-content: space-between;
-}
-
