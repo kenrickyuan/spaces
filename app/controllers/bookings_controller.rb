@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :set_space, only: [:new, :create]
+  before_action :set_space, only: [:new, :create, :edit, :update]
 
   def index
     # All User bookings
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     if @booking.save!
-      redirect_to user_space_booking_path(@user, @space, @booking)
+      redirect_to user_space_bookings_path(@user, @space, @booking)
     else
       @user = current_user
       render "spaces/show"
@@ -33,11 +33,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking.space = @space
+    @user = current_user
+    @booking.user = @user
   end
 
   def update
     @booking.update(booking_params)
-    redirect_to space_booking_path(@space)
+    redirect_to user_space_booking_path(@space)
   end
 
   def destroy
