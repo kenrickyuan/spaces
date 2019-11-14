@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :spaces, dependent: :destroy, foreign_key: 'owner_id'
   has_many :bookings, dependent: :destroy
   validates :name, presence: true
+  mount_uploader :photo, PhotoUploader
 end

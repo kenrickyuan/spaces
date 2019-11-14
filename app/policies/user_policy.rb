@@ -14,11 +14,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    false
+    record == user # can say true here also, as the person accessing the url will always get their own user#edit page
   end
 
   def update?
-    false
+    record == user # can say true here also, as the person accessing the url will always get their own user#edit page
   end
 
   def destroy?

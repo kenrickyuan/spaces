@@ -12,6 +12,12 @@ User.create!(
   password: 'testing123' # Error, I tried using these credentials and I couldn't log into your icloud. Please provide the real password here.
   )
 
+User.create!(
+  name: 'Test',
+  email: 'test@gmail.com',
+  password: 'testing123' # Error, I tried using these credentials and I couldn't log into your icloud. Please provide the real password here.
+  )
+
 10.times do
   user = User.new(
     name: Faker::FunnyName.name,
