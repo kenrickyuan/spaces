@@ -7,5 +7,7 @@ Rails.application.routes.draw do
       resources :bookings, except: [:index]
     end
   end
-  resources :spaces, only: [:index, :show]
+  resources :spaces, only: [:index, :show] do
+    resources :bookings, only: [:create]
+  end
 end
