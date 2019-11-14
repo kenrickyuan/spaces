@@ -1,3 +1,29 @@
+
+<div class="booking-inner-body" style="background-image: url(<%= random_bg %>)">
+  <div class="booking-form">
+    <%= simple_form_for [@space, @booking] do |f| %>
+      <h1 class="form-h1">Add dates</h1>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <span class="form-label">Check In</span>
+            <%= f.input :start_time, as: 'text', input_html: {class: 'picker'}, label: false%>
+  <!--           <input class="form-control" type="date" required>
+   -->    </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <span class="form-label">Check out</span>
+            <%= f.input :end_time, as: 'text', input_html: {class: 'picker'}, label: false%>
+  <!--           <input class="form-control" type="date" required>
+   -->    </div>
+        </div>
+      </div>
+      <div class="form-group"> <!-- Submit Button -->
+        <%= f.button :submit, class: "test-button" %>
+    <% end %>
+      </div>
+
 <% test = ["hardcoded/card-1.jpeg", "hardcoded/card-2.jpeg", "hardcoded/card-3.jpeg"] %>
 <%= render partial: "shared/carousel_big", locals: {test: test} %>
 <div class="show-space-inner-body">
@@ -21,6 +47,7 @@
     <div class="show-space-map">
       <img id="map-show-space" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1Ijoia2Vucmlja3l1YW4iLCJhIjoiY2syNjVwa24zMnA2cDNvcXR6MWQxc3QxZCJ9.WgP8krnsGkEkvvrGhQQ-qw'>
     </div>
+
   </div>
   <div class="booking-form"></div>
 </div>
