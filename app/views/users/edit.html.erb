@@ -1,0 +1,18 @@
+<%= simple_form_for(@user) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden, class: 'form-control' %>
+  </div>
+
+  <%= f.submit "update", class: 'btn btn-primary' %>
+<% end %>
