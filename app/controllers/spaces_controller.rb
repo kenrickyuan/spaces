@@ -4,21 +4,11 @@ class SpacesController < ApplicationController
   def index
     if params[:query].present?
       # @spaces = policy_scope(Space.filter(params[:query])) # <= whole pg_search_scope goes in here
-
-      @spaces = Space.where(@space.location == params[:location])
-
-      if params[:category].present?
-        @spaces = Space.where(Space.filter(params[:category]))
-      end
-
-      if params[:max_occupancy].present?
-        @spaces = Space.where(Space.max_occupancy >= params[:occupancy])
-      end
-
-      if params[:price_per_hour].present?
-        @spaces = Space.where(Space.price_per_hour >= params[:price])
-      end
-
+      filter_location
+      filter_availability if params[:checkin].present? && params[:checkout].present?
+      filter_category if params[:category].present?
+      filter_max_occupancy if params[:max_occupancy].present?
+      filter_price_per_hour if params[:price_per_hour].present?
       policy_scope(@spaces)
     else
       @spaces = policy_scope(Space.all)
@@ -69,5 +59,28 @@ class SpacesController < ApplicationController
   def set_space
     @space = Space.find(params[:id])
     authorize @space
+  end
+
+  def filter_location
+    @spaces = Space.where(location: params[:location])
+  end
+
+  def filter_category
+    @spaces = @spaces.filter(params[:category])
+  end
+
+  def filter_max_occupancy
+    @spaces = @spaces.where('max_occupancy >= ?', params[:occupancy])
+  end
+
+  def filter_price_per_hour
+    @spaces = @spaces.where('price_per_hour >= ?', params[:price])
+  end
+
+  def filter_availability
+    @bookings = Booking.where('start_time > ? and end_time < ?', params[:checkin], params[:checkout])
+
+    space_ids = @bookings.map(&:space_id)
+    @spaces = @spaces.where.not(id: space_ids)
   end
 end

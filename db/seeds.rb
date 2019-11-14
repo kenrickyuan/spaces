@@ -40,10 +40,10 @@ categories = ["house party", "wedding", "festival", "business", "dinner party", 
     owner: user,
     description: "A beautiful space.
 
-    Perfectly situated a block from Central Park, Columbus Circle, Time Warner Center, Whole Foods, Equinox Gym and multiple dining options. All major subway lines (A,B,C,D,E,N,Q,R,W and 1) are right there!
+    Perfectly situated near local amenities and plenty of dining options nearby. All major public transport lines are right there too!
 
     Guests have access to all facilities, including wifi!",
-    location: "New York",
+    location: Faker::Address.city,
     category: categories.sample,
     price_per_hour: rand(1..100),
     max_occupancy: rand(1..100)
