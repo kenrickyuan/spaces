@@ -1,0 +1,5 @@
+<%= simple_form_for [@user, @space, @booking] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.button :submit %>
+<% end %>

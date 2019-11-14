@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :spaces, only: [:index, :show]
+  resources :bookings, only: [:show]
+
 end

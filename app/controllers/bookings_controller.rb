@@ -21,10 +21,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.space = @space
-    if @booking.save
-      redirect_to space_booking_path(@space)
+    @user = current_user
+    @booking.user = @user
+    if @booking.save!
+      redirect_to user_space_booking_path(@user, @space, @booking)
     else
-      render :new
+      @user = current_user
+      render "spaces/show"
     end
   end
 
