@@ -3,6 +3,13 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = policy_scope(Space)
+    @spaces_geocoded = @spaces.geocoded
+    @markers = @spaces_geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude
+      }
+    end
   end
 
   def show
