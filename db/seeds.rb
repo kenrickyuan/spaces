@@ -32,7 +32,11 @@ categories = ["house party", "wedding", "festival", "business", "dinner party", 
 
   space = Space.new(
     owner: user,
-    description: "A beautiful space. Perfectly situated a block from Central Park, Columbus Circle, Time Warner Center, Whole Foods, Equinox Gym and multiple dining options. All major subway lines (A,B,C,D,E,N,Q,R,W and 1) are right there! Guests have access to all facilities, including wifi",
+    description: "A beautiful space.
+
+    Perfectly situated a block from Central Park, Columbus Circle, Time Warner Center, Whole Foods, Equinox Gym and multiple dining options. All major subway lines (A,B,C,D,E,N,Q,R,W and 1) are right there!
+
+    Guests have access to all facilities, including wifi!",
     location: "New York",
     category: categories.sample,
     price_per_hour: rand(1..100),
