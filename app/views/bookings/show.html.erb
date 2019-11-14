@@ -1,4 +1,38 @@
-<h1>Your Booking:</h1>
 
+<div class="cards">
+<% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
+    <div class="card-product d-flex">
+      <div class="card-product-infos">
+        <h2 class="show-space-title-h2">Congrats you successfully rented <%= @booking.space.name %></h2>
+        <div class="card-product-tags"> for <%= @booking.start_time.day %>th November <%= @booking.start_time.hour %>am until <%= @booking.end_time.day %>th November <%= @booking.end_time.hour %>pm</div>
+        <div class="card-product-numbers d-flex">
+          <div class="card-product-numbers-left">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% test = ["card-1.png", "card-2.png", "card-3.png"] %>
+<%= render partial: "shared/carousel_big", locals: {test: test} %>
+<div class="show-space-inner-body">
+<div class="show-space-container d-flex">
+  <div class="show-space-left">
+    <div class="show-space-title d-flex justify-content-between align-content-center">
+      <h2 class="show-space-title-h2"><%= @booking.space.name %></h2>
+      <div class="show-space-avatar"><%= image_tag "avatar.png", class: "avatar-large" %></div>
+    </div>
+    <div class="show-space-details">
+      <div class="show-space-quick-info">
+        <p> Location: <%= @booking.space.location %></p>
+        <p> Category: <%= @booking.space.category %></p>
+        <p class="show-space-occupancy"> Max_occupancy: <%= @booking.space.max_occupancy %></p>
+      </div>
+      <div class="show-space-description">
+        <p> <%= simple_format(@booking.space.description) %> </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-<p><%= @booking.start_time %> until <%= @booking.end_time %></p>

@@ -1,5 +1,14 @@
-<%= simple_form_for [@user, @space, @booking] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.button :submit %>
-<% end %>
+  <div class="sign-up-container">
+    <h1 class="form-h1">Book a date</h1>
+      <div class="form-inputs">
+      <%= simple_form_for [@user, @space, @booking] do |f| %>
+      <%= f.input :start_time %>
+      <%= f.input :end_time %>
+
+
+      <div class="form-actions" id="sign-up-button-div">
+        <%= f.button :submit, "Book", class: "link-button", id: "sign-up-button" %>
+      <% end %>
+    </div>
+    </div>
+</div>
