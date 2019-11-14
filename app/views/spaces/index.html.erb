@@ -1,8 +1,7 @@
 <div class="index-inner-body">
   <div class="cards">
     <% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
-    <h2 class="card-h2">We found 10 spaces for you!</h2>
-    <!-- 10 ==> @spaces.count -->
+    <h2 class="card-h2">We found <%= @spaces.count %> spaces for you!</h2>
     <% @spaces.each_with_index do |space, index| %>
     <div class="card-product d-flex">
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
@@ -24,16 +23,13 @@
     </div>
     <% end %>
 
-<!-- MAPBOX -->
+    <!-- MAPBOX -->
 
   </div>
-<div
-  id="map"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  <div id="map", data-markers="<%= @markers.to_json %>", data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 <!--   <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1Ijoia2Vucmlja3l1YW4iLCJhIjoiY2syNjVwa24zMnA2cDNvcXR6MWQxc3QxZCJ9.WgP8krnsGkEkvvrGhQQ-qw'>
- --></div>
+--></div>
 
 
 <!-- MAPBOX -->
