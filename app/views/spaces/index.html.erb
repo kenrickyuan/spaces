@@ -2,6 +2,7 @@
   <div class="cards">
     <% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
     <h2 class="card-h2">We found 10 spaces for you!</h2>
+    <!-- 10 ==> @spaces.count -->
     <% @spaces.each_with_index do |space, index| %>
     <div class="card-product d-flex">
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
