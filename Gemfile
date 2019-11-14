@@ -20,6 +20,7 @@ gem 'devise'
 gem 'faker'
 gem 'pundit'
 gem 'datetime_picker_input'
+gem 'pg_search', '~> 2.3.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

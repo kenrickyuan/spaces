@@ -2,7 +2,27 @@ class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update, :destroy]
 
   def index
-    @spaces = policy_scope(Space)
+    if params[:query].present?
+      # @spaces = policy_scope(Space.filter(params[:query])) # <= whole pg_search_scope goes in here
+
+      @spaces = Space.where(@space.location == params[:location])
+
+      if params[:category].present?
+        @spaces = Space.where(Space.filter(params[:category]))
+      end
+
+      if params[:max_occupancy].present?
+        @spaces = Space.where(Space.max_occupancy >= params[:occupancy])
+      end
+
+      if params[:price_per_hour].present?
+        @spaces = Space.where(Space.price_per_hour >= params[:price])
+      end
+
+      policy_scope(@spaces)
+    else
+      @spaces = policy_scope(Space.all)
+    end
   end
 
   def show
