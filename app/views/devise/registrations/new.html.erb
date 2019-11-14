@@ -1,32 +1,31 @@
-<div class="sign-up-inner-body">
-  <body style="background-image: url(<%= random_bg %>)">
-    <form class="sign-up-container">
-      <h1 class="form-h1">Sign up</h1>
+<div class="sign-up-inner-body" style="background-image: url(<%= random_bg %>)">
+  <div class="sign-up-container">
+    <h1 class="form-h1">Sign up</h1>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <%= f.input :name,
-                      required: true,
-                      autofocus: true %>
-          <%= f.input :email,
-                      required: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
+      <div class="form-inputs">
+        <%= f.input :name,
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :email,
+                    required: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
 
-        <div class="form-actions" id="sign-up-button-div">
-          <%= f.button :submit, "Sign up", class: "link-button", id: "sign-up-button" %>
-        </div>
-      <%= render "devise/shared/links" %>
-      <% end %>
-    </form>
-  </body>
+      <div class="form-actions" id="sign-up-button-div">
+        <%= f.button :submit, "Sign up", class: "link-button", id: "sign-up-button" %>
+      </div>
+    <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
 </div>
