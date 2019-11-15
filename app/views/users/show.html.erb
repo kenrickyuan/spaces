@@ -1,7 +1,13 @@
 <div class="profile-page-inner-body">
   <h1 class="profile-h1">Hi, <%= @user.name %>!</h1>
-  <%= cl_image_tag @user.photo, height: 300, width: 300, crop: :thumb, gravity: :face %>
+  <div class="profile-box">
+  <%= cl_image_tag @user.photo, height: 300, width: 300, crop: :thumb, gravity: :face, class: "profile-pic" %>
+  </div>
+  <div class="test">
+
   <%= link_to "Edit Profile", edit_user_path(current_user), class: "link-button" %>
+
+  </div>
 
 
 
