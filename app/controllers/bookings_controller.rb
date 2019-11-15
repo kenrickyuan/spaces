@@ -45,7 +45,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to space_path(@booking.space)
+    @user = User.find(params[:user_id])
+    redirect_to user_path(@user)
   end
 
   private
