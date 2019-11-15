@@ -15,23 +15,21 @@
 <% test = @booking.space.space_attachments %>
 <%= render partial: "shared/carousel_big", locals: {test: test} %>
 <div class="show-space-inner-body">
-  <div class="show-space-container d-flex">
-    <div class="show-space-left">
-      <div class="show-space-title d-flex justify-content-between align-content-center">
-        <h2 class="show-space-title-h2"><%= @booking.space.name %></h2>
-        <div class="show-space-avatar"><%= link_to user_path(@booking.space.owner) do %>
-          <%= cl_image_tag @booking.space.owner.photo, class: "avatar-large", crop: :thumb, gravity: :face %> <% end %></div>
-        </div>
-        <div class="show-space-details">
-          <div class="show-space-quick-info">
-            <p> Location: <%= @booking.space.location %></p>
-            <p> Category: <%= @booking.space.category %></p>
-            <p class="show-space-occupancy"> Max_occupancy: <%= @booking.space.max_occupancy %></p>
-          </div>
-          <div class="show-space-description">
-            <p> <%= simple_format(@booking.space.description) %> </p>
-          </div>
-        </div>
+<div class="show-space-container d-flex">
+  <div class="show-space-left">
+    <div class="show-space-title d-flex justify-content-between align-content-center">
+      <h2 class="show-space-title-h2"><%= @booking.space.name %></h2>
+      <div class="show-space-avatar"><%= link_to user_path(@booking.space.owner) do %>
+        <%= cl_image_tag @booking.space.owner.photo, class: "avatar-large", crop: :thumb, gravity: :face %> <% end %></div>
+      </div>
+    <div class="show-space-details">
+      <div class="show-space-quick-info">
+        <p> Location: <%= @booking.space.location %></p>
+        <p> Category: <%= @booking.space.category.capitalize %></p>
+        <p class="show-space-occupancy"> Max_occupancy: <%= @booking.space.max_occupancy %></p>
+      </div>
+      <div class="show-space-description">
+        <p> <%= simple_format(@booking.space.description) %> </p>
       </div>
     </div>
     <div class="buttons-for-show-booking d-flex justify-content-around">

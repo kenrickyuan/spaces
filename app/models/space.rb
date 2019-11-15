@@ -12,12 +12,12 @@ class Space < ApplicationRecord
   accepts_nested_attributes_for :space_attachments
 
   # Added set categories so no need to use pg search
-  # include PgSearch::Model
-  # pg_search_scope :filter,
-  #   against: [:category],
-  #     using: {
-  #     tsearch: { prefix: true }
-  #   }
+  include PgSearch::Model
+  pg_search_scope :filter_by_category,
+    against: [:category],
+      using: {
+      tsearch: { prefix: true }
+    }
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

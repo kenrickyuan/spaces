@@ -6,10 +6,9 @@ class SpacesController < ApplicationController
       filter_location
       filter_availability if params[:checkin].present? && params[:checkout].present?
       filter_category if params[:category].present?
-      filter_max_occupancy if params[:max_occupancy].present?
-      filter_price_per_hour if params[:price_per_hour].present?
+      filter_max_occupancy if params[:occupancy].present?
+      filter_price_per_hour if params[:price].present?
       policy_scope(@spaces)
-      @spaces = Space.all
       set_markers
     # else
     #   @spaces = policy_scope(Space.all)
@@ -43,16 +42,19 @@ class SpacesController < ApplicationController
   end
 
   def edit
+    @user = current_user
+
   end
 
   def update
     @space.update(space_params)
+    @user = current_user
     redirect_to space_path(@space)
   end
 
   def destroy
     @space.destroy
-    redirect_to spaces_path
+    redirect_to user_path(current_user)
   end
 
   private
@@ -71,7 +73,7 @@ class SpacesController < ApplicationController
   end
 
   def filter_category
-    @spaces = @spaces.filter(params[:category])
+    @spaces = @spaces.filter_by_category(params[:category])
   end
 
   def filter_max_occupancy
@@ -79,7 +81,7 @@ class SpacesController < ApplicationController
   end
 
   def filter_price_per_hour
-    @spaces = @spaces.where('price_per_hour >= ?', params[:price])
+    @spaces = @spaces.where('price_per_hour <= ?', params[:price])
   end
 
   def filter_availability

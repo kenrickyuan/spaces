@@ -14,7 +14,7 @@
       <div class="show-space-details">
         <div class="show-space-quick-info">
           <p> Location: <%= @space.location %></p>
-          <p> Category: <%= @space.category %></p>
+          <p> Category: <%= @space.category.capitalize %></p>
           <p class="show-space-occupancy"> Max_occupancy: <%= @space.max_occupancy %></p>
         </div>
         <div class="show-space-description">
@@ -24,8 +24,12 @@
       <div class="show-space-map" id="map", data-markers="<%= @marker.to_json %>", data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+    <% if @space.owner != current_user %>
     <div class="booking-form">
       <%= render partial: "shared/bookingform"%>
     </div>
+    <% else %>
+    <%= link_to 'Delete Space', space_path(@space), method: :delete, data: {confirm: "Are you sure?"}%>
+    <% end %>
   </div>
 </div>
