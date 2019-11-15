@@ -6,7 +6,7 @@
         <label for="location" class="control-label">Location</label>
         <select class="select2" type="text" name="location" id="location">
           <optgroup label="Europe">
-            <option>Malvinamouth</option>
+            <option></option>
             <option>Amsterdam</option>
             <option>London</option>
             <option>Berlin</option>
@@ -28,14 +28,14 @@
             <option>Bangkok</option>
             <option>Tokyo</option>
           </optgroup>
-        </select> -->
+        </select>
       </div>
       <label for="location" class="control-label">What kind of event?</label>
       <select class="select2" type="text" name="category">
         <option></option>
         <% array_of_catergories = ["house party", "wedding", "festival", "business", "dinner party", "drinks", "birthday", "coffee/high tea", "surprise", "baby shower", "celebration", "bridal shower", "weekend trip", "bbq"] %>
         <% array_of_catergories.each do |category|  %>
-        <option><%= category %></option>
+        <option><%= category.capitalize %></option>
         <% end %>
       </select>
       <div class="form-check-in-row d-flex">
