@@ -1,19 +1,20 @@
+<% number_of_times = test.count - 1 %>
 <div id="carouselExampleIndicators<%= i + 1 %>" class="carousel slide" data-ride="carousel" data-interval="false">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators<%= i + 1 %>" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators<%= i + 1 %>" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators<%= i + 1 %>" data-slide-to="2"></li>
+    <% number_of_times.times do |n| %>
+    <li data-target="#carouselExampleIndicators<%= i + 1 %>" data-slide-to=n></li>
+    <% end %>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag "card-1.png", alt: "card-1", class: "d-block carousel-image" %>
+      <%= cl_image_tag test[0].photo, class: "d-block carousel-image" %>
     </div>
+    <% number_of_times.times do |n| %>
     <div class="carousel-item">
-      <%= image_tag "card-2.png", alt: "card-2", class: "d-block carousel-image" %>
+      <%= cl_image_tag test[n + 1].photo, class: "d-block carousel-image" %>
     </div>
-    <div class="carousel-item">
-      <%= image_tag "card-3.png", alt: "card-3", class: "d-block carousel-image" %>
-    </div>
+    <% end %>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators<%= i + 1 %>" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

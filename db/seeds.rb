@@ -11,7 +11,7 @@ User.create!(
   name: 'Mark',
   email: 'mark_ruffalo@icloud.com',
   password: 'testing123',
-  photo: "images/Mark_Ruffalo.png"
+  remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573818339/Mark_Ruffalo_n1gb57.png"
   )
 
 # Additional random users
@@ -20,7 +20,7 @@ User.create!(
     name: Faker::FunnyName.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
-    photo: "images/default-avatar.png"
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819982/default-avatar_cjtvsk.png"
     )
   user.save!
 end
@@ -43,13 +43,33 @@ categories = ['house party', 'wedding', 'festival', 'business', 'dinner party', 
     Guests have access to all facilities, including wifi! Book now!',
     location: locations.sample,
     category: categories.sample,
-    price_per_hour: rand(1..100),
-    max_occupancy: rand(1..150)
+    price_per_hour: rand(30..100),
+    max_occupancy: rand(5..150)
     )
 
   position = i - 1
   space.name = space_name[position]
   space.save!
+end
+
+puts 'Creating images for spaces'
+
+25.times do |i|
+  SpaceAttachment.create!(
+    space: Space.find(i + 1),
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819006/listing2_cypfde.jpg"
+    )
+
+  SpaceAttachment.create!(
+    space: Space.find(i + 1),
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819006/listing1_nfbxbx.jpg"
+    )
+
+  SpaceAttachment.create!(
+    space: Space.find(i + 1),
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573818339/Mark_Ruffalo_n1gb57.png"
+    )
+  i = i + 1
 end
 
 puts 'Creating 25 bookings!'

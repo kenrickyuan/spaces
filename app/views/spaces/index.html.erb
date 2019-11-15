@@ -1,9 +1,11 @@
 <div class="index-inner-body">
   <div class="cards">
-    <% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
+
+    <!-- test = Space.find(params[:id]).space_attachments -->
     <h2 class="card-h2">We found <%= @spaces.count %> spaces for you!</h2>
     <% @spaces.each_with_index do |space, index| %>
     <div class="card-product d-flex">
+      <% test = space.space_attachments %>
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
         <h3 class="card-product-title-index"><%= link_to space.name, space_path(space), target: :_blank, class: "link"%></h3>

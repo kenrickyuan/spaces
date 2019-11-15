@@ -1,25 +1,22 @@
 <div class="profile-page-inner-body">
   <h1 class="profile-h1">Hi, <%= @user.name %>!</h1>
-  <%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fill %>
-
- <%= link_to "Edit Profile", edit_user_path(current_user), class: "link-button" %>
+  <%= cl_image_tag @user.photo, height: 300, width: 300, crop: :thumb, gravity: :face %>
+  <%= link_to "Edit Profile", edit_user_path(current_user), class: "link-button" %>
 
 
 
   <!-- display user bookings -->
   <div class="cards">
-    <% test = ["hardcoded/card-1.png", "hardcoded/card-2.png", "hardcoded/card-3.png"] %>
     <h2 class="card-h2">Your bookings</h2>
     <% @user.bookings.each_with_index do |booking, index| %>
     <div class="card-product d-flex">
+    <% test = booking.space.space_attachments %>
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
         <h3 class="card-product-title"><%= link_to booking.space.name, user_space_booking_path(booking.user, booking.space, booking), class: "link" %></h3>
         <div class="card-product-tags">From <%= booking.start_time.strftime("%H:%M on %d %B %Y") %></div>
         <div class="card-product-tags">Until <%= booking.end_time.strftime("%H:%M on %d %B %Y") %></div>
-        <%= link_to user_space_booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash destroy_dose"></i>
-          <% end %>
+        <%= link_to "delete", user_space_booking_path(booking.user, booking.space, booking), method: :delete, data: { confirm: "Are you sure?" } %>
         <div class="card-product-numbers d-flex">
           <div class="card-product-numbers-left">
             <div class="card-ratings d-flex"><%= image_tag "rating.png", class: "card-icon" %><span class="card-ratings-text">4.72</span></div>
@@ -38,13 +35,13 @@
 
   <!-- display user spaces -->
   <div class="cards">
-    <% test = ["card-1.png", "card-2.png", "card-3.png"] %>
     <h2 class="card-h2">Your spaces</h2>
     <% @user.spaces.each_with_index do |space, index| %>
+    <% test = space.space_attachments %>
     <div class="card-product d-flex">
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
-        <h3 class="card-product-title"><%= space.name %></h3>
+        <h3 class="card-product-title"><%= link_to space.name, space_path(space), class: "link" %></h3>
         <div class="card-product-tags"><%= space.category %></div>
         <div class="card-product-numbers d-flex">
           <div class="card-product-numbers-left">
