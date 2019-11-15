@@ -20,12 +20,8 @@ class SpacesController < ApplicationController
   def show
     @booking = Booking.new
     @user = current_user
-<<<<<<< HEAD
     set_marker
-
-=======
     @space_attachments = @space.space_attachments.all
->>>>>>> 200e8e2c572298f0e2910ad3365fca346932b5f2
   end
 
   def new
