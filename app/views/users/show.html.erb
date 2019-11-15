@@ -13,7 +13,7 @@
     <div class="card-product d-flex">
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
-        <h3 class="card-product-title"><%= link_to booking.space.name, space_path(booking.space), class: "link" %></h3>
+        <h3 class="card-product-title"><%= link_to booking.space.name, user_space_booking_path(booking.user, booking.space, booking), class: "link" %></h3>
         <div class="card-product-tags">From <%= booking.start_time.strftime("%H:%M on %d %B %Y") %></div>
         <div class="card-product-tags">Until <%= booking.end_time.strftime("%H:%M on %d %B %Y") %></div>
         <div class="card-product-numbers d-flex">

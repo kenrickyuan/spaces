@@ -46,6 +46,8 @@ body {
   border-radius: 4px;
   display: flex;
   height: fit-content;
+  position: sticky;
+  top: 0;
 }
 
 .booking-form .form-group {
