@@ -22,3 +22,32 @@
   margin-bottom: 30px;
   padding-top: 30px
 }
+
+.profile-box {
+display: flex;
+justify-content: center;
+}
+
+.link-button-top-profile {
+  justify-content: center;
+}
+
+
+.profile-pic {
+ text-align: center;
+ border-radius: 50%;
+ padding-top: 10px;
+}
+
+.test {
+ text-align: center;
+ padding-top: 40px;
+}
+
+.profile-top-box {
+  display: flex;
+}
+
+#profile-message{
+  padding-left: 50px;
+}
