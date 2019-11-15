@@ -1,7 +1,8 @@
 <div class="profile-page-inner-body">
   <h1 class="profile-h1">Hi, <%= @user.name %>!</h1>
   <%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fill %>
-  <%= link_to "Edit Profile", edit_user_path(current_user), class: "link-button" %>
+
+ <%= link_to "Edit Profile", edit_user_path(current_user), class: "link-button" %>
 
 
 
@@ -16,6 +17,9 @@
         <h3 class="card-product-title"><%= link_to booking.space.name, user_space_booking_path(booking.user, booking.space, booking), class: "link" %></h3>
         <div class="card-product-tags">From <%= booking.start_time.strftime("%H:%M on %d %B %Y") %></div>
         <div class="card-product-tags">Until <%= booking.end_time.strftime("%H:%M on %d %B %Y") %></div>
+        <%= link_to user_space_booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash destroy_dose"></i>
+          <% end %>
         <div class="card-product-numbers d-flex">
           <div class="card-product-numbers-left">
             <div class="card-ratings d-flex"><%= image_tag "rating.png", class: "card-icon" %><span class="card-ratings-text">4.72</span></div>
@@ -60,5 +64,6 @@
   <%= link_to "Add another space", new_user_space_path(current_user), class: "link-button" %>
   <% else %>
   <%= link_to "Add a space", new_user_space_path(current_user), class: "link-button" %>
+  <% end %>
   <% end %>
 </div>
