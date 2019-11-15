@@ -4,39 +4,23 @@ User.destroy_all
 Space.destroy_all
 Booking.destroy_all
 
-puts 'Creating 10 users!'
+puts 'Creating 20 users!'
 
-# Users for testing and demo
+# User for testing and demo
 User.create!(
-  name: 'Kristina',
-  email: 'kristina_head@icloud.com',
-  password: 'testing123'
-  )
-
-User.create!(
-  name: 'Paul',
-  email: 'gigantipaul@gmail.com',
-  password: 'testing123'
-  )
-
-User.create!(
-  name: 'Antonia',
-  email: 'antonialuutz@gmx.de',
-  password: 'testing123'
-  )
-
-User.create!(
-  name: 'Kenrick',
-  email: 'kenrickyuan@gmail.com',
-  password: 'testing123'
+  name: 'Mark',
+  email: 'mark_ruffalo@icloud.com',
+  password: 'testing123',
+  remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573818339/Mark_Ruffalo_n1gb57.png"
   )
 
 # Additional random users
-10.times do
+20.times do
   user = User.new(
     name: Faker::FunnyName.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819982/default-avatar_cjtvsk.png"
     )
   user.save!
 end
@@ -59,8 +43,8 @@ categories = ['house party', 'wedding', 'festival', 'business', 'dinner party', 
     Guests have access to all facilities, including wifi! Book now!',
     location: locations.sample,
     category: categories.sample,
-    price_per_hour: rand(1..100),
-    max_occupancy: rand(1..150)
+    price_per_hour: rand(30..100),
+    max_occupancy: rand(5..150)
     )
 
   position = i - 1
@@ -68,9 +52,29 @@ categories = ['house party', 'wedding', 'festival', 'business', 'dinner party', 
   space.save!
 end
 
-puts 'Creating 10 bookings!'
+puts 'Creating images for spaces'
 
-10.times do
+25.times do |i|
+  SpaceAttachment.create!(
+    space: Space.find(i + 1),
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819006/listing2_cypfde.jpg"
+    )
+
+  SpaceAttachment.create!(
+    space: Space.find(i + 1),
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819006/listing1_nfbxbx.jpg"
+    )
+
+  SpaceAttachment.create!(
+    space: Space.find(i + 1),
+    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573818339/Mark_Ruffalo_n1gb57.png"
+    )
+  i = i + 1
+end
+
+puts 'Creating 25 bookings!'
+
+25.times do
   user = User.all.sample
   space = Space.all.sample
 

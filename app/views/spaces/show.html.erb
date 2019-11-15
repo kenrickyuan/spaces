@@ -1,5 +1,4 @@
-
-<% test = ["card-1.png", "card-2.png", "card-3.png"] %>
+<% test = Space.find(params[:id]).space_attachments %>
 <%= render partial: "shared/carousel_big", locals: {test: test} %>
 <div class="show-space-inner-body">
   <div class="show-space-container d-flex">
