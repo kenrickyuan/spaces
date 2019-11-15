@@ -4,39 +4,23 @@ User.destroy_all
 Space.destroy_all
 Booking.destroy_all
 
-puts 'Creating 10 users!'
+puts 'Creating 20 users!'
 
-# Users for testing and demo
+# User for testing and demo
 User.create!(
-  name: 'Kristina',
-  email: 'kristina_head@icloud.com',
-  password: 'testing123'
-  )
-
-User.create!(
-  name: 'Paul',
-  email: 'gigantipaul@gmail.com',
-  password: 'testing123'
-  )
-
-User.create!(
-  name: 'Antonia',
-  email: 'antonialuutz@gmx.de',
-  password: 'testing123'
-  )
-
-User.create!(
-  name: 'Kenrick',
-  email: 'kenrickyuan@gmail.com',
-  password: 'testing123'
+  name: 'Mark',
+  email: 'mark_ruffalo@icloud.com',
+  password: 'testing123',
+  photo: "images/Mark_Ruffalo.png"
   )
 
 # Additional random users
-10.times do
+20.times do
   user = User.new(
     name: Faker::FunnyName.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    photo: "images/default-avatar.png"
     )
   user.save!
 end
@@ -68,9 +52,9 @@ categories = ['house party', 'wedding', 'festival', 'business', 'dinner party', 
   space.save!
 end
 
-puts 'Creating 10 bookings!'
+puts 'Creating 25 bookings!'
 
-10.times do
+25.times do
   user = User.all.sample
   space = Space.all.sample
 
