@@ -41,70 +41,70 @@ class SpacesController < ApplicationController
       render :new
     end
   end
-end
 
-def edit
-end
-
-def update
-  @space.update(space_params)
-  redirect_to space_path(@space)
-end
-
-def destroy
-  @space.destroy
-  redirect_to spaces_path
-end
-
-private
-
-def space_params
-  params.require(:space).permit(:name, :description, :location, :category, :price_per_hour, :max_occupancy, space_attachments_attributes: [:photo])
-end
-
-def set_space
-  @space = Space.find(params[:id])
-  authorize @space
-end
-
-def filter_location
-  @spaces = Space.where(location: params[:location])
-end
-
-def filter_category
-  @spaces = @spaces.filter(params[:category])
-end
-
-def filter_max_occupancy
-  @spaces = @spaces.where('max_occupancy >= ?', params[:occupancy])
-end
-
-def filter_price_per_hour
-  @spaces = @spaces.where('price_per_hour >= ?', params[:price])
-end
-
-def filter_availability
-  @bookings = Booking.where('start_time > ? and end_time < ?', params[:checkin], params[:checkout])
-
-  space_ids = @bookings.map(&:space_id)
-  @spaces = @spaces.where.not(id: space_ids)
-end
-
-def set_markers
-  @spaces_geocoded = @spaces.geocoded
-  @markers = @spaces_geocoded.map do |space|
-    {
-      lat: space.latitude,
-      lng: space.longitude
-    }
+  def edit
   end
 
-  def set_marker
-    @marker = [
+  def update
+    @space.update(space_params)
+    redirect_to space_path(@space)
+  end
+
+  def destroy
+    @space.destroy
+    redirect_to spaces_path
+  end
+
+  private
+
+  def space_params
+    params.require(:space).permit(:name, :description, :location, :category, :price_per_hour, :max_occupancy, space_attachments_attributes: [:photo])
+  end
+
+  def set_space
+    @space = Space.find(params[:id])
+    authorize @space
+  end
+
+  def filter_location
+    @spaces = Space.where(location: params[:location])
+  end
+
+  def filter_category
+    @spaces = @spaces.filter(params[:category])
+  end
+
+  def filter_max_occupancy
+    @spaces = @spaces.where('max_occupancy >= ?', params[:occupancy])
+  end
+
+  def filter_price_per_hour
+    @spaces = @spaces.where('price_per_hour >= ?', params[:price])
+  end
+
+  def filter_availability
+    @bookings = Booking.where('start_time > ? and end_time < ?', params[:checkin], params[:checkout])
+
+    space_ids = @bookings.map(&:space_id)
+    @spaces = @spaces.where.not(id: space_ids)
+  end
+
+  def set_markers
+    @spaces_geocoded = @spaces.geocoded
+    @markers = @spaces_geocoded.map do |space|
       {
-        lat: @space.latitude,
-        lng: @space.longitude
+        lat: space.latitude,
+        lng: space.longitude
       }
-    ]
+    end
+
+    def set_marker
+      @marker = [
+        {
+          lat: @space.latitude,
+          lng: @space.longitude
+        }
+      ]
+    end
   end
 end
