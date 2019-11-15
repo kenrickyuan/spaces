@@ -97,14 +97,14 @@ class SpacesController < ApplicationController
         lng: space.longitude
       }
     end
+  end
 
-    def set_marker
-      @marker = [
-        {
-          lat: @space.latitude,
-          lng: @space.longitude
-        }
-      ]
-    end
+  def set_marker
+    @marker = [
+      {
+        lat: @space.latitude,
+        lng: @space.longitude
+      }
+    ]
   end
 end
