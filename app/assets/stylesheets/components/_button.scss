@@ -12,6 +12,22 @@
   }
 }
 
+.btn-white{
+  background-color: white;
+  color: black;
+  width: 195px;
+  border-radius: 10px;
+  font-family: Roboto;
+  border: 1px solid black;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    opacity: 0.85;
+  }
+}
+
 .link-button {
   background-color: black;
   color: white;

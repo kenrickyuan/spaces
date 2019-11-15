@@ -6,7 +6,7 @@
 }
 
 .container-newspace {
-  height: 700px;
+  height: 768px;
   width: 650px;
   background-color: white;
   padding: 30px;
@@ -19,4 +19,21 @@
 
 .form-submit-btn {
   width: 100%
+}
+
+#space_price_per_hour {
+  width: 295px;
+}
+
+#space_max_occupancy {
+  width: 295px;
+}
+
+.space_space_attachments_photo {
+  margin-bottom: 0;
+  // height: 140px;
+}
+
+.field-all-photos {
+  height: 140px;
 }
