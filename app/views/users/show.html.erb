@@ -42,7 +42,7 @@
       <%= render partial: "shared/carousel", locals: {test: test, i: index} %>
       <div class="card-product-infos">
         <h3 class="card-product-title"><%= link_to space.name, space_path(space), class: "link" %></h3>
-        <div class="card-product-tags"><%= space.category %></div>
+        <div class="card-product-tags"><%= space.category.capitalize %></div>
         <div class="card-product-numbers d-flex">
           <div class="card-product-numbers-left">
             <div class="card-ratings d-flex"><%= image_tag "rating.png", class: "card-icon" %><span class="card-ratings-text">4.72</span></div>
@@ -61,6 +61,5 @@
   <%= link_to "Add another space", new_user_space_path(current_user), class: "link-button" %>
   <% else %>
   <%= link_to "Add a space", new_user_space_path(current_user), class: "link-button" %>
-  <% end %>
   <% end %>
 </div>

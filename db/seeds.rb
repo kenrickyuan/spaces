@@ -57,17 +57,17 @@ puts 'Creating images for spaces'
 25.times do |i|
   SpaceAttachment.create!(
     space: Space.find(i + 1),
-    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819006/listing2_cypfde.jpg"
+    remote_photo_url: "http://image1.gardenersworld.com/65781.JPG?tag=5dc8d36c-02bf-4cc0-a78d-c5b556c7cdc5"
     )
 
   SpaceAttachment.create!(
     space: Space.find(i + 1),
-    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573819006/listing1_nfbxbx.jpg"
+    remote_photo_url: "https://i.pinimg.com/originals/e7/56/c6/e756c61d949fa7975673af1513faab9d.jpg"
     )
 
   SpaceAttachment.create!(
     space: Space.find(i + 1),
-    remote_photo_url: "https://res.cloudinary.com/kenrick/image/upload/v1573818339/Mark_Ruffalo_n1gb57.png"
+    remote_photo_url: "https://www.tripsavvy.com/thmb/mikSkUueelr9pJOpExuXrt-mepM=/3330x2204/filters:no_upscale():max_bytes(150000):strip_icc()/hard-rock-rooftop-56a8499a5f9b58b7d0f1f4da.jpg"
     )
   i = i + 1
 end

@@ -25,7 +25,7 @@
     <div class="show-space-details">
       <div class="show-space-quick-info">
         <p> Location: <%= @booking.space.location %></p>
-        <p> Category: <%= @booking.space.category %></p>
+        <p> Category: <%= @booking.space.category.capitalize %></p>
         <p class="show-space-occupancy"> Max_occupancy: <%= @booking.space.max_occupancy %></p>
       </div>
       <div class="show-space-description">

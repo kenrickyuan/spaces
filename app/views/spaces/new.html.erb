@@ -9,7 +9,7 @@
       <%= simple_form_for [@user, @space], html: { multipart: true } do |f| %>
         <div class="form-inputs">
           <%= f.input :name %>
-          <%= f.input :category, collection: ['house party', 'wedding', 'festival']%>
+          <%= f.input :category, collection: ['house party', 'wedding', 'festival', 'business', 'dinner party', 'drinks', 'birthday', 'coffee/high tea', 'surprise', 'baby shower', 'celebration', 'bridal shower', 'weekend trip', 'bbq']%>
           <%= f.input :max_occupancy %>
           <%= f.input :location %>
           <%= f.input :description %>
