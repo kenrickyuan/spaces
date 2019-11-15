@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     if @booking.save!
-      redirect_to user_space_bookings_path(@user, @space, @booking)
+      redirect_to user_space_booking_path(@user, @space, @booking)
     else
       @user = current_user
       render "spaces/show"
