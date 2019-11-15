@@ -9,12 +9,13 @@ class Space < ApplicationRecord
   validates :price_per_hour, presence: true, numericality: true
   validates :max_occupancy, presence: true, numericality: { only_integer: true }
 
-  include PgSearch::Model
-  pg_search_scope :filter,
-    against: [:category],
-      using: {
-      tsearch: { prefix: true }
-    }
+  # Added set categories so no need to use pg search
+  # include PgSearch::Model
+  # pg_search_scope :filter,
+  #   against: [:category],
+  #     using: {
+  #     tsearch: { prefix: true }
+  #   }
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

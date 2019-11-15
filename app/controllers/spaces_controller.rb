@@ -67,7 +67,7 @@ class SpacesController < ApplicationController
   end
 
   def filter_category
-    @spaces = @spaces.filter(params[:category])
+    @spaces = @spaces.where(category: params[:category])
   end
 
   def filter_max_occupancy
