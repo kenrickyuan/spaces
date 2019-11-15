@@ -34,4 +34,8 @@
   </div>
 </div>
 </div>
-<%= link_to "Edit Your Booking Details", edit_user_space_booking_path %>
+
+
+<%= link_to "Edit Your Booking Details", edit_user_space_booking_path, class: "link-button"%>
+
+<%= link_to 'Delete Booking', user_space_booking_path(@booking), method: :delete, data: {confirm: "Are you sure?"}, class: "link-button"%>
