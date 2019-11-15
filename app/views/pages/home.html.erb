@@ -1,6 +1,7 @@
 <div class="home-inner-body">
   <body style="background-image: url(<%= random_bg %>)">
-    <form class="home-container">
+
+    <form  form action="/spaces" method="get" class="home-container">
       <h1 class="form-h1">Find a space for your event</h1>
 
       <div class="form-radio d-flex">
@@ -15,8 +16,9 @@
       </div>
 
       <div class="form-group"> <!-- Where-->
-        <label for="where" class="control-label">Location</label>
-        <select class="select2" type="text">
+        <label for="where" class="control-label" name="location">Location</label>
+
+        <!-- <select class="select2" type="text">
           <optgroup label="Europe">
             <option>Amsterdam</option>
             <option>London</option>
@@ -39,7 +41,7 @@
             <option>Bangkok</option>
             <option>Tokyo</option>
           </optgroup>
-        </select>
+        </select> -->
       </div>
       <div class="form-check-in-row d-flex">
         <div class="form-group form-date"> <!-- Dates-->
@@ -60,7 +62,7 @@
         </div>
         <div class="form-group"> <!-- Submit Button REAL BUTTON COMMENTED OUT FOR WEDNESDAY DEMO -->
           <!-- <button type="submit"></button> -->
-            <%= link_to "Search", spaces_path, class: "btn btn-black" %>
+            <input type="submit" class= "btn btn-black" >
         </div>
       </div>
     </form>
