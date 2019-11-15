@@ -13,7 +13,7 @@ body {
 }
 
 .home-container {
-  height: 420px;
+  height: 500px;
   width: 450px;
   background-color: white;
   padding-left: 30px;
@@ -51,5 +51,20 @@ body {
 
 .form-check-in-row {
   justify-content: space-between;
+  height: 71px;
 }
 
+
+#checkin {
+  width: 195px;
+}
+
+#checkout {
+  width: 195px;
+}
+
+.home-form-submit-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 27px;
+}

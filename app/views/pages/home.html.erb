@@ -30,15 +30,17 @@
           </optgroup>
         </select>
       </div>
-      <label for="location" class="control-label">What kind of event?</label>
-      <select class="select2" type="text" name="category">
-        <option></option>
-        <% array_of_catergories = ["house party", "wedding", "festival", "business", "dinner party", "drinks", "birthday", "coffee/high tea", "surprise", "baby shower", "celebration", "bridal shower", "weekend trip", "bbq"] %>
-        <% array_of_catergories.each do |category|  %>
-        <option><%= category.capitalize %></option>
-        <% end %>
-      </select>
-      <div class="form-check-in-row d-flex">
+      <div class="form-group">
+        <label for="location" class="control-label">What kind of event?</label>
+        <select class="select2" type="text" name="category">
+          <option></option>
+          <% array_of_catergories = ["house party", "wedding", "festival", "business", "dinner party", "drinks", "birthday", "coffee/high tea", "surprise", "baby shower", "celebration", "bridal shower", "weekend trip", "bbq"] %>
+          <% array_of_catergories.each do |category|  %>
+          <option><%= category.capitalize %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group form-check-in-row d-flex">
         <div class="form-group form-date"> <!-- Dates-->
           <label for="checkin" class="control-label">Check in</label>
           <input type="text" class="picker" id="checkin" name="checkin" placeholder="Optional">
@@ -50,20 +52,22 @@
         </div>
       </div>
 
-      <div class="form-last-row d-flex">
-        <div class="form-group"> <!-- When - dropdown -->
+      <div class="form-group d-flex"> <!-- When - dropdown -->
+        <div class="occupancy-section">
           <label for="occupancy" class="control-label">How many people?</label>
           <input type="number" name="occupancy" placeholder="Optional" id="occupancy">
+        </div>
+        <div class="price-section">
           <label for="price" class="control-label">Maximum price/hour?</label>
           <input type="number" name="price" placeholder="Optional" id="price">
         </div>
-
-        <div class="form-group">
-            <input type="submit" class= "btn btn-black" value="Search">
-
-        </div>
       </div>
-    </form>
 
-  </body>
+      <div class="form-group home-form-submit-div">
+        <input type="submit" class= "btn btn-black" value="Search">
+      </div>
+    </div>
+  </form>
+
+</body>
 </div>

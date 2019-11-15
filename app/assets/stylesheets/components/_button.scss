@@ -1,3 +1,11 @@
+#link-button-1{
+  width: 267px;
+}
+
+#link-button-2{
+  width: 267px;
+}
+
 .btn-black{
   background-color: black;
   color: white;
@@ -9,6 +17,23 @@
     cursor: pointer;
     color: white;
     opacity: 0.85;
+  }
+}
+
+.btn-white{
+  background-color: white;
+  color: black;
+  width: 195px;
+  border-radius: 10px;
+  font-family: Roboto;
+  border: 1px solid black;
+
+  &:hover {
+    background-color: black;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    // opacity: 0.85;
   }
 }
 

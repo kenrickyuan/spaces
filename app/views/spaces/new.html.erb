@@ -1,5 +1,3 @@
-
-
 <div class="newspace-inner-body">
   <body style="background-image: url(<%= random_bg %>)">
     <div class="container-newspace">
@@ -10,20 +8,22 @@
         <div class="form-inputs">
           <%= f.input :name %>
           <%= f.input :category, collection: ['house party', 'wedding', 'festival', 'business', 'dinner party', 'drinks', 'birthday', 'coffee/high tea', 'surprise', 'baby shower', 'celebration', 'bridal shower', 'weekend trip', 'bbq']%>
-          <%= f.input :max_occupancy %>
+          <div class="form-inputs-numbers d-flex">
+            <%= f.input :max_occupancy %>
+            <%= f.input :price_per_hour %>
+          </div>
           <%= f.input :location %>
           <%= f.input :description %>
-          <%= f.input :price_per_hour %>
         </div>
         <%= f.simple_fields_for :space_attachments do |p| %>
-        <div class="field">
+        <div class="field field-all-photos">
           <%= p.input :photo, as: :file, multiple: true, name: "space_attachments[]" %>
         </div>
       <% end %>
 
-      <button type="button" class="btn btn-primary add-photo-btn">Add another photo</button>
 
-     <div class="form-submit-btn d-flex justify-content-center">
+     <div class="form-submit-btn d-flex justify-content-between">
+      <button type="button" class="btn btn-white add-photo-btn">Add another photo</button>
 
       <%= f.button :submit, "Add Your Space", { class: 'login-btn' , id: 'new-space-login-btn'}  %>
     </div>
