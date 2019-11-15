@@ -9,6 +9,7 @@ class SpacesController < ApplicationController
       filter_max_occupancy if params[:max_occupancy].present?
       filter_price_per_hour if params[:price_per_hour].present?
       policy_scope(@spaces)
+      @spaces = Space.all
       set_markers
     # else
     #   @spaces = policy_scope(Space.all)
@@ -19,7 +20,12 @@ class SpacesController < ApplicationController
   def show
     @booking = Booking.new
     @user = current_user
+
+    set_marker
+
+
     @space_attachments = @space.space_attachments.all
+
   end
 
   def new
@@ -95,5 +101,14 @@ def set_markers
       lat: space.latitude,
       lng: space.longitude
     }
+  end
+
+  def set_marker
+    @marker = [
+      {
+        lat: @space.latitude,
+        lng: @space.longitude
+      }
+    ]
   end
 end
