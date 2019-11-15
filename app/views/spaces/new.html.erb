@@ -6,19 +6,27 @@
 
       <h1 class="form-h1">List Your Space</h1>
 
-      <%= simple_form_for [@user, @space] do |f| %>
-      <div class="form-inputs">
-        <%= f.input :name %>
-        <%= f.input :category, collection: ['house party', 'wedding', 'festival']%>
-        <%= f.input :max_occupancy %>
-        <%= f.input :location %>
-        <%= f.input :description %>
-        <%= f.input :price_per_hour %>
-      </div>
-      <div class="form-submit-btn d-flex justify-content-center">
+      <%= simple_form_for [@user, @space], html: { multipart: true } do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :category, collection: ['house party', 'wedding', 'festival']%>
+          <%= f.input :max_occupancy %>
+          <%= f.input :location %>
+          <%= f.input :description %>
+          <%= f.input :price_per_hour %>
+        </div>
+        <%= f.simple_fields_for :space_attachments do |p| %>
+        <div class="field">
+          <%= p.input :photo, as: :file, multiple: true, name: "space_attachments[]" %>
+        </div>
+      <% end %>
+
+      <button type="button" class="btn btn-primary add-photo-btn">Add another photo</button>
+
+     <div class="form-submit-btn d-flex justify-content-center">
 
       <%= f.button :submit, "Add Your Space", { class: 'login-btn' , id: 'new-space-login-btn'}  %>
-      </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
+</div>

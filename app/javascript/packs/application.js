@@ -2,6 +2,7 @@ import "bootstrap";
 import $ from 'jquery';
 import 'select2';
 import iniDatePicker from "../plugins/datepicker"
+import initMultiplePhotos from "../plugins/space_photos"
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 
@@ -16,3 +17,4 @@ initSelect2();
 
 initMapbox();
 
+initMultiplePhotos();
