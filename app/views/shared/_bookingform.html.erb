@@ -5,9 +5,9 @@
       <%= f.input :start_time, as: 'text', input_html: {class: 'picker'}, label: false%>
       <%= f.input :end_time, as: 'text', input_html: {class: 'picker'}, label: false%>
 
-      <div class="form-actions" id="sign-up-button-div">
-        <%= f.button :submit, "Book", target: :_blank, class: "link-button", id: "sign-up-button" %>
+      <!-- <div class="form-actions" id="sign-up-button-div"> -->
+        <%= f.button :submit, "Book", class: "link-button", id: "sign-up-button",formtarget: :_blank %>
         <% end %>
-      </div>
+  <!--     </div> -->
     </div>
   </div>
