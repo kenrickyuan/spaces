@@ -40,14 +40,15 @@ body {
 
 .booking-form {
   background-color: #fff;
-  padding: 50px 20px;
+  padding: 0;
+  height: 350px;
   -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   display: flex;
-  height: fit-content;
+  // height: fit-content;
   position: sticky;
-  top: 0;
+  top: 62px;
 }
 
 .booking-form .form-group {
@@ -137,4 +138,15 @@ body {
 .booking-cta p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.booking-form-container {
+  height: 350px;
+  width: 450px;
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  border-radius: 10px;
 }

@@ -1,8 +1,10 @@
-  <div class="sign-up-container">
+  <div class="booking-form-container">
     <h1 class="form-h1">Book a date</h1>
     <div class="form-inputs">
       <%= simple_form_for [@user, @space, @booking] do |f| %>
+      Check-in
       <%= f.input :start_time, as: 'text', input_html: {class: 'picker'}, label: false%>
+      Check-out
       <%= f.input :end_time, as: 'text', input_html: {class: 'picker'}, label: false%>
 
       <!-- <div class="form-actions" id="sign-up-button-div"> -->

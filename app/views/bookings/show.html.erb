@@ -1,11 +1,11 @@
 <div class="cards">
   <% test = @booking.space.space_attachments %>
-    <div class="card-product d-flex">
-      <div class="card-product-infos">
-        <h2 class="show-space-title-h2">Congrats you successfully rented <%= @booking.space.name %></h2>
-        <div class="card-product-tags"> for <%= @booking.start_time.day %>th November <%= @booking.start_time.hour %>am until <%= @booking.end_time.day %>th November <%= @booking.end_time.hour %>pm</div>
-        <div class="card-product-numbers d-flex">
-          <div class="card-product-numbers-left">
+  <div class="card-product d-flex" id="card-product-id">
+    <div class="card-product-infos" id="card-product-infos-id">
+      <h2 class="show-space-title-h2">Congrats you successfully rented <%= @booking.space.name %></h2>
+      <div class="card-product-tags"> for <%= @booking.start_time.day %>th November <%= @booking.start_time.hour %>am until <%= @booking.end_time.day %>th November <%= @booking.end_time.hour %>pm</div>
+      <div class="card-product-numbers d-flex">
+        <div class="card-product-numbers-left">
         </div>
       </div>
     </div>
@@ -15,28 +15,28 @@
 <% test = @booking.space.space_attachments %>
 <%= render partial: "shared/carousel_big", locals: {test: test} %>
 <div class="show-space-inner-body">
-<div class="show-space-container d-flex">
-  <div class="show-space-left">
-    <div class="show-space-title d-flex justify-content-between align-content-center">
-      <h2 class="show-space-title-h2"><%= @booking.space.name %></h2>
-      <div class="show-space-avatar"><%= link_to user_path(@booking.space.owner) do %>
-        <%= cl_image_tag @booking.space.owner.photo, class: "avatar-large", crop: :thumb, gravity: :face %> <% end %></div>
-      </div>
-    <div class="show-space-details">
-      <div class="show-space-quick-info">
-        <p> Location: <%= @booking.space.location %></p>
-        <p> Category: <%= @booking.space.category %></p>
-        <p class="show-space-occupancy"> Max_occupancy: <%= @booking.space.max_occupancy %></p>
-      </div>
-      <div class="show-space-description">
-        <p> <%= simple_format(@booking.space.description) %> </p>
+  <div class="show-space-container d-flex">
+    <div class="show-space-left">
+      <div class="show-space-title d-flex justify-content-between align-content-center">
+        <h2 class="show-space-title-h2"><%= @booking.space.name %></h2>
+        <div class="show-space-avatar"><%= link_to user_path(@booking.space.owner) do %>
+          <%= cl_image_tag @booking.space.owner.photo, class: "avatar-large", crop: :thumb, gravity: :face %> <% end %></div>
+        </div>
+        <div class="show-space-details">
+          <div class="show-space-quick-info">
+            <p> Location: <%= @booking.space.location %></p>
+            <p> Category: <%= @booking.space.category %></p>
+            <p class="show-space-occupancy"> Max_occupancy: <%= @booking.space.max_occupancy %></p>
+          </div>
+          <div class="show-space-description">
+            <p> <%= simple_format(@booking.space.description) %> </p>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="buttons-for-show-booking d-flex justify-content-around">
+      <%= link_to "Edit Your Booking Details", edit_user_space_booking_path, class: "link-button", id: "link-button-1" %>
+      <%= link_to 'Delete Booking', user_space_booking_path(@booking.space), method: :delete, data: {confirm: "Are you sure?"}, class: "link-button", id: "link-button-2" %>
+    </div>
   </div>
-</div>
-</div>
 
-
-<%= link_to "Edit Your Booking Details", edit_user_space_booking_path, class: "link-button"%>
-
-<%= link_to 'Delete Booking', user_space_booking_path(@booking.space), method: :delete, data: {confirm: "Are you sure?"}, class: "link-button"%>
